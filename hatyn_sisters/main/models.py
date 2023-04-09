@@ -1,8 +1,7 @@
 from django.db import models
-from django.utils import timezone
 
 # Create your models here.
-class SightsCategories(models.Model):
+class ModelSightsEventsCategories(models.Model):
     name = models.CharField(max_length=128, verbose_name='Название')
     description = models.TextField(blank=True, null=True, verbose_name='Описание')
 
@@ -14,12 +13,12 @@ class SightsCategories(models.Model):
         return f'Категория {self.name}'
 
 
-class Sights(models.Model):
+class ModelSights(models.Model):
     name = models.CharField(max_length=127, verbose_name='Название')
     description = models.TextField(blank=True, null=True, verbose_name='Описание')
-    images = models.ImageField(upload_to='sights_media_images/%Y/%m/%d/', blank=True, null=True, verbose_name='Изображение')
+    #images = models.ImageField(upload_to='sights_media_images/%Y/%m/%d/', blank=True, null=True, verbose_name='Изображение')
     video = models.FileField(upload_to='sights_media_videos/%Y/%m/%d/', blank=True, null=True, verbose_name='Видео')
-    category = models.ForeignKey(to=SightsCategories, on_delete=models.CASCADE, verbose_name='Категория')
+    category = models.ForeignKey(to=ModelSightsEventsCategories, on_delete=models.CASCADE, verbose_name='Категория')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
 
     class Meta:
@@ -30,13 +29,18 @@ class Sights(models.Model):
         return f'Достопримечательнсть {self.name} категории {self.category}'
 
 
-class Events(models.Model):
+class ModelSightsImage(models.Model):
+    images = models.ImageField(upload_to='sights_media_images/%Y/%m/%d/', blank=True, null=True, verbose_name='Изображение')
+    sight = models.ForeignKey(to=ModelSights, on_delete=models.CASCADE, verbose_name='Изображения')
+
+
+class ModelEvents(models.Model):
     name = models.CharField(max_length=128, verbose_name='Название')
     description = models.TextField(blank=True, null=True, verbose_name='Описание')
     date = models.DateField(verbose_name='Дата')
-    images = models.ImageField(upload_to='events_media_images/%Y/%m/%d/', blank=True, null=True, verbose_name='Изображение')
+    #images = models.ImageField(upload_to='events_media_images/%Y/%m/%d/', blank=True, null=True, verbose_name='Изображение')
     video = models.FileField(upload_to='events_media_videos/%Y/%m/%d/', blank=True, null=True, verbose_name='Видео')
-    sights = models.ForeignKey(to=Sights, on_delete=models.CASCADE, verbose_name='Достопримечательность')
+    sights = models.ForeignKey(to=ModelSights, on_delete=models.CASCADE, verbose_name='Достопримечательность')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
 
     class Meta:
@@ -45,4 +49,9 @@ class Events(models.Model):
 
     def __str__(self):
         return f'Событие {self.name} достопримечтаельности {self.sights}'
+
+
+class ModelEventsImage(models.Model):
+    images = models.ImageField(upload_to='sights_media_images/%Y/%m/%d/', blank=True, null=True, verbose_name='Изображение')
+    event = models.ForeignKey(to=ModelEvents, on_delete=models.CASCADE, verbose_name='Изображения')
 

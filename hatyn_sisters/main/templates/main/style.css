@@ -66,14 +66,23 @@ header{
 
 .sound-off{
     border: 0;
+    background: url(Media/Figma/sound_off.png) 100% 100% no-repeat; 
+    width: 40px; 
+    height: 40px;
 }
 
 .sound-on{
     border: 0;
+    background: url(Media/Figma/sound_on.png) 100% 100% no-repeat; 
+    width: 40px; 
+    height: 40px;
 }
 
 .search-loupe{
     border: 0;
+    background: url(Media/Figma/loupe.png) 100% 100% no-repeat; 
+    width: 40px; 
+    height: 40px;
 }
 
 .search-input-class{
@@ -87,7 +96,7 @@ header{
     font-family: Tahoma;
 }
 
-/*----------------------------------Body---------------------------------*/
+/*----------------------------------Body villages---------------------------------*/
 
 .background-container{
     top: 0;
@@ -201,7 +210,7 @@ main{
   transform: rotateY(360deg);
 }
 
-/*----------------------------------Body---------------------------------*/
+/*----------------------------------Footer---------------------------------*/
 
 .footer-container{
     min-height: 100%;
@@ -235,3 +244,28 @@ main{
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+/*----------------------------------Body village information---------------------------------*/
+
+.village-information-title{
+    text-align: center;
+    color: white;
+    font-size: 48px;
+}
+
+.village-images-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0px 20px 0px;
+    align-items: center;
+}
+
+.village-images-item{
+    margin: 20px 0px;
+}
+
+.village-information-text{
+    color: white;
+}

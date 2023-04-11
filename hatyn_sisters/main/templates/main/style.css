@@ -96,6 +96,12 @@ header{
     font-family: Tahoma;
 }
 
+@media (max-width: 900px){
+  .search-input-class {
+        width: 250px; 
+   }
+}
+
 /*----------------------------------Body villages---------------------------------*/
 
 .background-container{
@@ -268,4 +274,73 @@ main{
 
 .village-information-text{
     color: white;
+}
+
+/*----------------------------------Body bells information---------------------------------*/
+
+.bells-information-title{
+    text-align: center;
+    color: white;
+    font-size: 48px;
+}
+
+.bells-information-img-container{
+    float: right;
+    padding: 0px 0px 10px 20px;
+}
+
+@media (max-width: 900px){
+  .bells-information-img {
+        width: 400px; 
+        height: 400px;
+   }
+   .bells-information-img-container{
+        margin: 0 auto;
+        padding: 0px 0px 10px 0px;
+   }
+}
+
+.bells-information-text{
+    color: white;
+}
+
+.bells-information-text-image-container{
+    margin-top: 20px;
+}
+
+/*----------------------------------Body bells information---------------------------------*/
+
+.monument-information-title{
+    text-align: center;
+    color: white;
+    font-size: 48px;
+}
+
+.monument-information-img-container{
+    float: right;
+    padding: 0px 0px 10px 20px;
+}
+
+.monument-information-img{
+    width: 610px;
+    height: 450px;
+}
+
+@media (max-width: 900px){
+  .monument-information-img {
+        width: 400px; 
+        height: 350px;
+   }
+   .monument-information-img-container{
+        margin: 0 auto;
+        padding: 0px 0px 10px 0px;
+   }
+}
+
+.monument-information-text{
+    color: white;
+}
+
+.monument-information-text-image-container{
+    margin-top: 20px;
 }

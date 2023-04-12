@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<title>Events</title>
+</head>
+<body>
+	<div class="background-container">
+		<header>
+			<div class="header-container">
+				<div class="header-panel">
+					<div class="logo">
+						<a href="index.html" class="logo-href">
+							<img src="./Media/Figma/logo.png">
+						</a>	
+					</div>
+					<div class="sound-and-search">
+						<div class="sound">
+							<button class="sound-off"></button>
+							<button class="sound-on"></button>	
+						</div>
+						<div class="search">
+							<div class="search-field">
+								<input type="search" class="search-input-class" name="search-input" placeholder="Поиск по событиям">
+							</div>
+							<div class="search-image">
+								<button class="search-loupe"></button>		
+							</div>
+						</div>						
+					</div>		
+				</div>			
+			</div>
+		</header>		
+		<main>
+			<div class="main-container">
+				<h2 class="events-information-title">События</h2>
+				<div class="dropdown-container">
+					<div class="dropdown-content-container">
+						<div class="dropdown">
+							<button onclick="myFunction('myDropdown')" class="dropbtn">Деревня такая-то</button>
+								<div id="myDropdown" class="dropdown-content">
+									<div class="filters-inputs-container">
+									    <input type="text" class="myInput1" placeholder="Поиск.." onkeyup="filterFunction1('myDropdown1')">
+									    <div class="input-filter-date">
+										    <input type="date" class="date-filter" placeholder="Выберите дату" id="myInputDate">								    	
+									    </div>											
+									</div>	
+								    <a href="#about">Событие1</a>
+								    <a href="#base">Событие2</a>
+								    <a href="#blog">Событие</a>
+								    <a href="#contact">Событие</a>
+								    <a href="#custom">Событие</a>
+								    <a href="#support">Событие</a>
+								    <a href="#tools">Событие</a>
+							  	</div>
+						</div>
+						<div class="dropdown">
+							<button onclick="myFunction('myDropdown1')" class="dropbtn">Деревня такая-то2</button>
+								<div id="myDropdown1" class="dropdown-content">
+									<div class="filters-inputs-container">
+									    <input type="text" class="myInput1" placeholder="Поиск.." onkeyup="filterFunction1('myDropdown1')">
+									    <div class="input-filter-date">
+										    <input type="date" class="date-filter" placeholder="Выберите дату" id="myInputDate">								    	
+									    </div>											
+									</div>
+								    <a href="#about">Событие</a>
+								    <a href="#base">Событие</a>
+								    <a href="#blog">Событие</a>
+								    <a href="#contact">Событие</a>
+								    <a href="#custom">Событие</a>
+								    <a href="#support">Событие</a>
+								    <a href="#tools">Событие</a>
+							  	</div>
+						</div>						
+					</div>
+					<div class="dropdown-filters">
+						<button onclick="myFunction('myDropdown2')" class="dropbtn">Выберите деревню из предложенных</button>
+							<div id="myDropdown2" class="dropdown-content">
+								<div class="filters-inputs">
+								    <select class="village-filter">
+								    	<option value="" hidden selected disabled>Выбрать</option>
+									    <option >Деревня 1</option>
+	  									<option>Деревня 2</option>	
+								    </select>							
+								</div>
+						  	</div>
+					</div>				
+				</div>						
+			</div>
+		</main>
+		<footer>
+			<div class="footer-container-events">
+				<div class="pagination">
+				  <a href="#">&laquo;</a>
+				  <a href="#">1</a>
+				  <a class="active" href="#">2</a>
+				  <a href="#">3</a>
+				  <a href="#">4</a>
+				  <a href="#">5</a>
+				  <a href="#">6</a>
+				  <a href="#">&raquo;</a>
+				</div> 				
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.js"></script>
+</body>
+</html>

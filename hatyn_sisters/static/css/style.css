@@ -79,21 +79,21 @@ header{
 
 .sound-off{
     border: 0;
-    background: url(Media/Figma/sound_off.png) 100% 100% no-repeat; 
+    background: url(../img/sound_off.png) 100% 100% no-repeat;
     width: 40px; 
     height: 40px;
 }
 
 .sound-on{
     border: 0;
-    background: url(Media/Figma/sound_on.png) 100% 100% no-repeat; 
+    background: url(../img/sound_on.png) 100% 100% no-repeat;
     width: 40px; 
     height: 40px;
 }
 
 .search-loupe{
     border: 0;
-    background: url(Media/Figma/loupe.png) 100% 100% no-repeat; 
+    background: url(../img/loupe.png) 100% 100% no-repeat;
     width: 40px; 
     height: 40px;
 }
@@ -125,7 +125,7 @@ header{
     position: relative;
     min-height: 100%;
     min-width: 100%;
-    background-image: url(Media/Figma/background.jpg);
+    background-image: url(../img/background.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -140,7 +140,7 @@ header{
     position: relative;
     min-height: 100%;
     min-width: 100%;
-    background-image: url(Media/Figma/main_page_background_cadr.jpg);
+    background-image: url(../img/main_page_background_cadr.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -204,6 +204,9 @@ main{
 
 .search-loupe-main{
     border: 0;
+    background: url(../img/loupe60.png) 100% 100% no-repeat;
+    width: 60px;
+    height: 60px;
 }
 
 .villages-items{
@@ -420,7 +423,7 @@ main{
     height: 50px;
     border-box: box-sizing;
     background-color: rgba(0,0,0,.4);
-    background-image: url('searchicon.png');
+    background-image: url(../img/searchicon.png);
     background-position: 14px 12px;
     background-repeat: no-repeat;
     font-size: 16px;
@@ -436,7 +439,7 @@ main{
     height: 50px;
     border-box: box-sizing;
     background-color: rgba(0,0,0,.4);
-    background-image: url('searchicon.png');
+    background-image: url(../img/searchicon.png);
     background-position: 14px 12px;
     background-repeat: no-repeat;
     font-size: 16px;

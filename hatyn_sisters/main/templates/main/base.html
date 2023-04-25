@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    {% block css %} {% endblock css %}
+</head>
+<body>
+	<div class="background-container">
+		<header>
+			<div class="header-container">
+				<div class="header-panel">
+					<div class="logo">
+						<a href="{% url 'main:index' %}" class="logo-href">
+							<img src="{% static 'img/logo.png' %}">
+						</a>
+					</div>
+					<div class="sound-and-search">
+						<div class="sound">
+							<button class="sound-off"></button>
+							<button class="sound-on"></button>
+						</div>
+						<div class="search">
+							<div class="search-field">
+								<input type="search" class="search-input-class" name="search-input" placeholder="Поиск по событиям">
+							</div>
+							<div class="search-image">
+								<button class="search-loupe"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="main-container">
+				{% block content %}
+				{% endblock content %}
+			</div>
+		</main>
+		{% block footer %}
+		{% endblock footer %}
+	</div>
+</body>
+</html>

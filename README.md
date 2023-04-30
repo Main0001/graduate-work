@@ -10,13 +10,19 @@
 
 # Installation
 
-1. Open the terminal and navigate to the directory where you want to create your project using the cd command. For example, if you want to create your project in a directory called "myproject" located in the Documents folder, you can use the command:
+1. Open the terminal and clone the project repository by typing the following command in the terminal:
+
+```bash
+git clone git@github.com:Main0001/graduate-work.git
+```
+
+2.  Open the project directory by typing the following command in the terminal:
 
 ```bash
 cd graduate-project
 ```
 
-2. Create a virtual environment for your project by typing the following command in the terminal:
+3. Create a virtual environment for your project by typing the following command in the terminal:
 
 ```bash
 python3.10 -m venv venv
@@ -24,7 +30,7 @@ python3.10 -m venv venv
 
 This will create a new directory called "venv" in your project directory, which will contain a Python virtual environment.
 
-3. Activate the virtual environment by typing the following command in the terminal:
+4. Activate the virtual environment by typing the following command in the terminal:
 
 ```bash
 source venv/bin/activate
@@ -32,7 +38,7 @@ source venv/bin/activate
 
 You should see the name of your virtual environment in the terminal prompt, indicating that it is active.
 
-4. Install the required packages for your project by typing the following command in the terminal:
+5. Install the required packages for your project by typing the following command in the terminal:
 
 ```bash
 pip install -r req.txt
@@ -40,7 +46,7 @@ pip install -r req.txt
 
 Make sure you have a req.txt file that contains a list of required packages and their versions.
 
-5. Run the development server by typing the following command in the terminal:
+6. Run the development server by typing the following command in the terminal:
 
 ```bash
 python manage.py runserver

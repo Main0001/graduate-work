@@ -1,17 +1,17 @@
 *,
 *::before,
-*::after{
-    padding: 0;
-    margin: 0;
-    border: 0;
-    box-sizing: border-box;
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 html,
-body{
-    height: 100%;
+body {
+  height: 100%;
 }
 
 footer {
@@ -21,214 +21,215 @@ footer {
   height: 80px;
 }
 
-.footer-container{
-    min-height: 100%;
-    max-width: 90%; 
-    margin: 0 auto;
+.footer-container {
+  min-height: 100%;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 /*----------------------------------HEAD---------------------------------*/
-.header-panel{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 100%;
-    max-width: 90%; 
-    margin: 0 auto;
+.header-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100%;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
-header{
-    position:fixed;
-    height: 100px;
-    min-width: 100%; 
-    background: rgba(162, 162, 162, 0.3);
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index:1000;
+header {
+  position: fixed;
+  height: 100px;
+  min-width: 100%;
+  background: rgba(162, 162, 162, 0.3);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
-.header-container{
-    height: 100px;
+.header-container {
+  height: 100px;
 }
 
-.logo{
-    transition: 1s;
+.logo {
+  transition: 1s;
 }
 
-.logo:hover{
-    transition: 1s;
-    -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
-    -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
-    box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+.logo:hover {
+  transition: 1s;
+  -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
 }
 
-.search{
-    display: flex;
+.search {
+  display: flex;
 }
 
-.sound-and-search{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.sound-and-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.sound{
-    margin-bottom: 10px;
+.sound {
+  margin-bottom: 10px;
 }
 
-.sound-off{
-    border: 0;
-    background: url(../img/sound_off.png) 100% 100% no-repeat;
-    width: 40px; 
-    height: 40px;
+.sound-off {
+  border: 0;
+  background: url(../img/sound_off.png) 100% 100% no-repeat;
+  width: 40px;
+  height: 40px;
 }
 
-.sound-on{
-    border: 0;
-    background: url(../img/sound_on.png) 100% 100% no-repeat;
-    width: 40px; 
-    height: 40px;
+.sound-on {
+  border: 0;
+  background: url(../img/sound_on.png) 100% 100% no-repeat;
+  width: 40px;
+  height: 40px;
 }
 
-.search-loupe{
-    border: 0;
-    background: url(../img/loupe.png) 100% 100% no-repeat;
-    width: 40px; 
-    height: 40px;
+.search-loupe {
+  border: 0;
+  background: url(../img/loupe.png) 100% 100% no-repeat;
+  width: 40px;
+  height: 40px;
 }
 
-.search-input-class{
-    width: 302px;
-    height: 40px;
-    padding: 5px 10px 5px 10px;
-    margin: 0px 12px;
-    border:1px solid #999;
-    border-radius: 10px;
-    font-size:16px;
-    font-family: Tahoma;
+.search-input-class {
+  width: 302px;
+  height: 40px;
+  padding: 5px 10px 5px 10px;
+  margin: 0px 12px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Tahoma;
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
   .search-input-class {
-        width: 250px; 
-   }
+    width: 250px;
+  }
 }
 
 /*----------------------------------Body villages---------------------------------*/
 
-.background-container{
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: relative;
-    min-height: 100%;
-    min-width: 100%;
-    background-image: url(../img/background.jpg);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+.background-container {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: relative;
+  min-height: 100%;
+  min-width: 100%;
+  background-image: url(../img/background.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.main-page-background-container{
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: relative;
-    min-height: 100%;
-    min-width: 100%;
-    background-image: url(../img/main_page_background_cadr.jpg);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+.main-page-background-container {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: relative;
+  min-height: 100%;
+  min-width: 100%;
+  background-image: url(../img/main_page_background_cadr.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.main-page-background-container:before{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color:rgba(0, 0, 0, 0);
+.main-page-background-container:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-.background-container:before{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color:rgba(0, 0, 0, .45);
+.background-container:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
 }
 
-main{
-    position: relative;
-    padding-top: 130px;
-    z-index: 999;
+main {
+  position: relative;
+  padding-top: 130px;
+  z-index: 999;
 }
 
-.main-container{
-    min-height: 100%;
-    max-width: 90%; 
-    margin: 0 auto;
+.main-container {
+  min-height: 100%;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
-.main-search-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.main-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.search-input-class-main{
-    width: 350px;
-    height: 60px;
-    padding: 5px 10px 5px 10px;
-    margin: 0px 12px;
-    border:1px solid #999;
-    border-radius: 10px;
-    font-size:16px;
-    font-family: Tahoma;
+.search-input-class-main {
+  width: 350px;
+  height: 60px;
+  padding: 5px 10px 5px 10px;
+  margin: 0px 12px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Tahoma;
 }
 
-.search-loupe-main{
-    border: 0;
-    background: url(../img/loupe60.png) 100% 100% no-repeat;
-    width: 60px;
-    height: 60px;
+.search-loupe-main {
+  border: 0;
+  background: url(../img/loupe60.png) 100% 100% no-repeat;
+  width: 60px;
+  height: 60px;
 }
 
-.villages-items{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-    flex-direction: row;
+.villages-items {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-.villages-item{
-    margin:20px 80px;
+.villages-item {
+  margin: 20px 80px;
 }
 
-.card{
+.card {
   width: 250px;
   height: 250px;
   perspective: 1000px;
 }
 
-.front, .back{
+.front,
+.back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -240,30 +241,30 @@ main{
   transition: 1s;
   backface-visibility: hidden;
   background-color: #fff;
- }
+}
 
-.front img{
+.front img {
   max-width: 100%;
   min-width: 100%;
   height: auto;
 }
 
-.back{
+.back {
   transform: rotateY(180deg);
 }
 
-.card:hover .front{
+.card:hover .front {
   transform: rotateY(180deg);
 }
 
-.card:hover .back{
+.card:hover .back {
   transform: rotateY(360deg);
 }
 
 /*----------------------------------Footer---------------------------------*/
-.pagination{
-    display: flex;
-    justify-content: center;
+.pagination {
+  display: flex;
+  justify-content: center;
 }
 
 .pagination a {
@@ -272,12 +273,12 @@ main{
   float: left;
   padding: 8px 16px;
   text-decoration: none;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   z-index: 999;
 }
 
-.pagination a:hover{
-    color: black;
+.pagination a:hover {
+  color: black;
 }
 
 .pagination a.active {
@@ -285,361 +286,370 @@ main{
   color: white;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
-
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
 
 /*----------------------------------Body village information---------------------------------*/
 
-.village-information-title{
-    text-align: center;
-    color: white;
-    font-size: 48px;
+.village-information-title {
+  text-align: center;
+  color: white;
+  font-size: 48px;
 }
 
-.village-images-items{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px 0px 20px 0px;
-    align-items: center;
+.village-images-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0px 20px 0px;
+  align-items: center;
 }
 
-.village-images-item{
-    margin: 20px 0px;
+.village-images-item {
+  margin: 20px 0px;
 }
 
-.village-information-text{
-    color: white;
+.village-information-text {
+  color: white;
 }
 
 /*----------------------------------Body bells information---------------------------------*/
 
-.bells-information-title{
-    text-align: center;
-    color: white;
-    font-size: 48px;
+.bells-information-title {
+  text-align: center;
+  color: white;
+  font-size: 48px;
 }
 
-.bells-information-img-container{
-    float: right;
-    padding: 0px 0px 10px 20px;
+.bells-information-img-container {
+  float: right;
+  padding: 0px 0px 10px 20px;
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
   .bells-information-img {
-        width: 400px; 
-        height: 400px;
-   }
-   .bells-information-img-container{
-        margin: 0 auto;
-        padding: 0px 0px 10px 0px;
-   }
+    width: 400px;
+    height: 400px;
+  }
+  .bells-information-img-container {
+    margin: 0 auto;
+    padding: 0px 0px 10px 0px;
+  }
 }
 
-.bells-information-text{
-    color: white;
+.bells-information-text {
+  color: white;
 }
 
-.bells-information-text-image-container{
-    margin-top: 20px;
+.bells-information-text-image-container {
+  margin-top: 20px;
 }
 
 /*----------------------------------Body bells information---------------------------------*/
 
-.monument-information-title{
-    text-align: center;
-    color: white;
-    font-size: 48px;
+.monument-information-title {
+  text-align: center;
+  color: white;
+  font-size: 48px;
 }
 
-.monument-information-img-container{
-    float: right;
-    padding: 0px 0px 10px 20px;
+.monument-information-img-container {
+  float: right;
+  padding: 0px 0px 10px 20px;
 }
 
-.monument-information-img{
-    width: 610px;
-    height: 450px;
+.monument-information-img {
+  width: 610px;
+  height: 450px;
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
   .monument-information-img {
-        width: 400px; 
-        height: 350px;
-   }
-   .monument-information-img-container{
-        margin: 0 auto;
-        padding: 0px 0px 10px 0px;
-   }
+    width: 400px;
+    height: 350px;
+  }
+  .monument-information-img-container {
+    margin: 0 auto;
+    padding: 0px 0px 10px 0px;
+  }
 }
 
-.monument-information-text{
-    color: white;
+.monument-information-text {
+  color: white;
 }
 
-.monument-information-text-image-container{
-    margin-top: 20px;
+.monument-information-text-image-container {
+  margin-top: 20px;
 }
 
 /*----------------------------------Body events---------------------------------*/
-.dropdown-container{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.dropdown-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.dropdown-content-container{
-    display: flex;
-    flex-direction: column;
+.dropdown-content-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.dropdown{
-    margin-bottom: 20px;
+.dropdown {
+  margin-bottom: 20px;
 }
 
-.filters-inputs{
-    display: flex;
-    flex-direction: column;
+.filters-inputs {
+  display: flex;
+  flex-direction: column;
 }
 
-.dropbtn{
-    background-color: rgba(0,0,0,.4);
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 400px;
-    border: 10px;
-    border-color: white;
+.dropbtn {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 400px;
+  border: 10px;
+  border-color: white;
 }
 
-.dropbtn:hover, .dropbtn:focus{
-    background-color: #3e8e41;
-    background-color: rgba(140,0,0,.7);
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #3e8e41;
+  background-color: rgba(140, 0, 0, 0.7);
 }
 
-#myInput{
-    height: 50px;
-    border-box: box-sizing;
-    background-color: rgba(0,0,0,.4);
-    background-image: url(../img/searchicon.png);
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 10px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    color: white;
+#myInput {
+  height: 50px;
+  border-box: box-sizing;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url(../img/searchicon.png);
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 10px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  color: white;
 }
 
-#myInput:focus {outline: 3px solid #ddd;}
-
-.myInput1{
-    height: 50px;
-    border-box: box-sizing;
-    background-color: rgba(0,0,0,.4);
-    background-image: url(../img/searchicon.png);
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 10px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    color: white;
+#myInput:focus {
+  outline: 3px solid #ddd;
 }
 
-.myInput1:focus {outline: 3px solid #ddd;}
-
-.input-filter-date{
-    background-color: rgba(0,0,0,.4);
-    height: 50px;
+.myInput1 {
+  height: 50px;
+  border-box: box-sizing;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url(../img/searchicon.png);
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 10px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  color: white;
 }
 
-.date-filter{
-    background-color: rgba(0,0,0,.1);
-    color: white;
-    margin-top: 15px;
+.myInput1:focus {
+  outline: 3px solid #ddd;
 }
 
-.filters-inputs-container{
-    display: flex;
+.input-filter-date {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 50px;
 }
 
-.dropdown{
-    position: relative;
-    display: inline-block;
+.date-filter {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  margin-top: 15px;
 }
 
-.dropdown-filters{
-    position: relative;
-    display: inline-block;
-    margin-bottom: 20px;
+.filters-inputs-container {
+  display: flex;
 }
 
-.dropdown-content{
-    display: none;
-    position: relative;
-    min-width: 230px;
-    overflow: auto;
-    border: 1px solid #ddd;
-    z-index: 1;
-    margin-left: 50px;
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.dropdown-content > input{
-    margin-right: 20px;
+.dropdown-filters {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
-.dropdown-content a{
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    background-color: rgba(0,0,0,.7);
+.dropdown-content {
+  display: none;
+  position: relative;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+  margin-left: 50px;
 }
 
-.dropdown a:hover {background-color: rgba(140,0,0,.7);}
-
-.show {display: block;}
-
-
-.village-filter{
-    margin: 0;
-    text-align: center;
-    background-color: rgba(0,0,0,.7);
-    color: white;
-    height: 30px;    
+.dropdown-content > input {
+  margin-right: 20px;
 }
 
-.footer-container-events{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-.events-information-title{
-    text-align: center;
-    color: white;
-    font-size: 48px; 
-    margin-bottom: 10px;  
+.dropdown a:hover {
+  background-color: rgba(140, 0, 0, 0.7);
+}
+
+.show {
+  display: block;
+}
+
+.village-filter {
+  margin: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  height: 30px;
+}
+
+.footer-container-events {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+}
+
+.events-information-title {
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  margin-bottom: 10px;
 }
 
 /*----------------------------------Main Page---------------------------------*/
-.nav-items{
-    width: 800px;
-    margin: 0 auto;
-    margin-top: 140px;
-    display: flex;
-    flex-direction: column;
+.nav-items {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 140px;
+  display: flex;
+  flex-direction: column;
 }
 
-.nav-items > a{
-    color: #c2b0ae;
-    transition: 0.5s;
+.nav-items > a {
+  color: #c2b0ae;
+  transition: 0.5s;
 }
 
-.nav-items > a:hover{
-    transition: 0.5s;
-    color: darkred;
+.nav-items > a:hover {
+  transition: 0.5s;
+  color: darkred;
 }
 
-.nav-item-monument{
-    margin-right: 200px;
-    width: 580px;
-    font-size: 40px;
+.nav-item-monument {
+  margin-right: 200px;
+  width: 580px;
+  font-size: 40px;
 }
 
-.nav-item-bells{
-    margin-left: 180px;
-    width: 380px;
-    font-size: 40px;
+.nav-item-bells {
+  margin-left: 180px;
+  width: 380px;
+  font-size: 40px;
 }
 
-.nav-item-villages{
-    margin-left: 250px;
-    width: 250px;
-    font-size: 40px;
+.nav-item-villages {
+  margin-left: 250px;
+  width: 250px;
+  font-size: 40px;
 }
 
-.nav-item-events{
-    margin-left: 220px;
-    width: 250px;
-    font-size: 40px;
+.nav-item-events {
+  margin-left: 220px;
+  width: 250px;
+  font-size: 40px;
 }
 
-.nav-item-create-event{
-    margin-left: 110px;
-    width: 350px;
-    font-size: 40px;
+.nav-item-create-event {
+  margin-left: 110px;
+  width: 350px;
+  font-size: 40px;
 }
 
-@media (max-width: 1260px){
-    .nav-items{
-        margin-top: 200px;
-    }
-    .nav-item-monument{
-        margin-left: 80px;
-        font-size: 30px;
-        width: 450px;
-    }
-    .nav-item-bells{
-        font-size: 30px;
-        width: 300px;
-    }
-    .nav-item-villages{
-        font-size: 30px;
-        width: 210px;
-    }
-    .nav-item-events{
-        font-size: 30px;
-        width: 210px;
-    }
-    .nav-item-create-event{
-        font-size: 30px;
-        width: 270px;
-    }
+@media (max-width: 1260px) {
+  .nav-items {
+    margin-top: 200px;
+  }
+  .nav-item-monument {
+    margin-left: 80px;
+    font-size: 30px;
+    width: 450px;
+  }
+  .nav-item-bells {
+    font-size: 30px;
+    width: 300px;
+  }
+  .nav-item-villages {
+    font-size: 30px;
+    width: 210px;
+  }
+  .nav-item-events {
+    font-size: 30px;
+    width: 210px;
+  }
+  .nav-item-create-event {
+    font-size: 30px;
+    width: 270px;
+  }
 }
 
-@media (max-width: 860px){
-    .nav-items{
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .nav-items > a{
-        margin-bottom: 20px;
-        margin-right: 20px;
-    }
-    .nav-item-monument{
-        margin: 0;
-        font-size: 30px;
-        width: 280px;
-    }
-    .nav-item-bells{
-        font-size: 30px;
-        width: 300px;
-        margin: 0;
-    }
-    .nav-item-villages{
-        font-size: 30px;
-        width: 210px;
-        margin: 0;
-    }
-    .nav-item-events{
-        font-size: 30px;
-        width: 210px;
-        margin: 0;
-    }
-    .nav-item-create-event{
-        font-size: 30px;
-        width: 270px;
-        margin: 0;
-    }
-    .main-page-background-container:before{
-        background-color:rgba(0, 0, 0, .65);
-    }
+@media (max-width: 860px) {
+  .nav-items {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-items > a {
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+  .nav-item-monument {
+    margin: 0;
+    font-size: 30px;
+    width: 280px;
+  }
+  .nav-item-bells {
+    font-size: 30px;
+    width: 300px;
+    margin: 0;
+  }
+  .nav-item-villages {
+    font-size: 30px;
+    width: 210px;
+    margin: 0;
+  }
+  .nav-item-events {
+    font-size: 30px;
+    width: 210px;
+    margin: 0;
+  }
+  .nav-item-create-event {
+    font-size: 30px;
+    width: 270px;
+    margin: 0;
+  }
+  .main-page-background-container:before {
+    background-color: rgba(0, 0, 0, 0.65);
+  }
 }

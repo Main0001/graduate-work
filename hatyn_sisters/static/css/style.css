@@ -329,12 +329,15 @@ main {
 
 @media (max-width: 900px) {
   .bells-information-img {
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    height: auto;
   }
   .bells-information-img-container {
-    margin: 0 auto;
-    padding: 0px 0px 10px 0px;
+    float: none;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    margin-bottom: 2rem;
   }
 }
 

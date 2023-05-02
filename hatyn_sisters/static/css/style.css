@@ -348,6 +348,10 @@ main {
 
 /*----------------------------------Body bells information---------------------------------*/
 
+.monument-information-text-container {
+  color: white;
+}
+
 .monument-information-title {
   text-align: center;
   color: white;
@@ -366,17 +370,36 @@ main {
 
 @media (max-width: 900px) {
   .monument-information-img {
-    width: 400px;
-    height: 350px;
+    float: none;
+    width: 90%;
+    height: auto;
   }
   .monument-information-img-container {
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
     padding: 0px 0px 10px 0px;
+    float: none;
   }
 }
 
 .monument-information-text {
   color: white;
+}
+
+.quout-container {
+  max-width: 360px;
+  margin-bottom: 1rem;
+}
+
+.monument-information-quout {
+  font-style: italic;
+}
+
+.quout-author {
+  width: 100%;
+  color: hsla(0, 0%, 100%, 0.5);
+  padding-top: 0.5rem;
+  font-weight: bold;
 }
 
 .monument-information-text-image-container {
@@ -539,7 +562,7 @@ main {
 
 /*----------------------------------Main Page---------------------------------*/
 .nav-items {
-  width: 800px;
+  width: min-content;
   margin: 0 auto;
   margin-top: 140px;
   display: flex;

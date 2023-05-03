@@ -1,84 +1,55 @@
-{% extends 'main/base.html' %}
-{% load static %}
-	{% block css %}
-		<link href="{% static 'css/style.css' %}" rel="stylesheet">
-	{% endblock css %}
-	{% block content %}
-		<div class="main-search-container">
-					<div class="search">
-						<div class="search-field-main">
-							<input type="search" class="search-input-class-main" name="search-input-main" placeholder="Поиск деревни">
-						</div>
-						<div class="search-image-main">
-							<button class="search-loupe-main"></button>
-						</div>
-					</div>
-				</div>
-		        <div class="villages-items">
-                    <div class="villages-item">
-                          <div class="card">
-                                <div class="front"><img src="{% static 'img/village.jpg' %}"></div>
-                                <div class="back"><a href="#">Деревня такая-то</a></div>
-                            </div>
-                    </div>
-                    <div class="villages-item">
-                          <div class="card">
-                                <div class="front"><img src="{% static 'img/village.jpg' %}"></div>
-                                <div class="back"><a href="#">Деревня такая-то</a></div>
-                            </div>
-                    </div>
-                    <div class="villages-item">
-                          <div class="card">
-                                <div class="front"><img src="{% static 'img/village.jpg' %}"></div>
-                                <div class="back"><a href="#">Деревня такая-то</a></div>
-                            </div>
-                    </div>
-                    <div class="villages-item">
-                          <div class="card">
-                                <div class="front"><img src="{% static 'img/village.jpg' %}"></div>
-                                <div class="back"><a href="#">Деревня такая-то</a></div>
-                            </div>
-                    </div>
-                    <div class="villages-item">
-                          <div class="card">
-                                <div class="front"><img src="{% static 'img/village.jpg' %}"></div>
-                                <div class="back"><a href="#">Деревня такая-то</a></div>
-                            </div>
-                    </div>
-                    <div class="villages-item">
-                          <div class="card">
-                                <div class="front"><img src="{% static 'img/village.jpg' %}"></div>
-                                <div class="back"><a href="#">Деревня такая-то</a></div>
-                            </div>
-                    </div>
-                    <div class="villages-item">
-                          <div class="card">
-                                <div class="front"><img src="{% static 'img/village.jpg' %}"></div>
-                                <div class="back"><a href="#">Деревня такая-то</a></div>
-                            </div>
-                    </div>
-                    <div class="villages-item">
-                          <div class="card">
-                                <div class="front"><img src="{% static 'img/village.jpg' %}"></div>
-                                <div class="back"><a href="#">Деревня такая-то</a></div>
-                            </div>
-                    </div>
-                </div>
-	{% endblock content %}
-	{% block footer %}
-		<footer>
-			<div class="footer-container">
-				<div class="pagination">
-				  <a href="#">&laquo;</a>
-				  <a href="#">1</a>
-				  <a class="active" href="#">2</a>
-				  <a href="#">3</a>
-				  <a href="#">4</a>
-				  <a href="#">5</a>
-				  <a href="#">6</a>
-				  <a href="#">&raquo;</a>
-				</div>
-			</div>
-		</footer>
-	{% endblock footer %}
-
+{% extends 'main/base.html' %} {% load static %} {% block css %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet" />
+{% endblock css %} {% block content %}
+<div class="main-search-container">
+  <div class="search">
+    <div class="search-field-main">
+      <input
+        type="search"
+        class="search-input-class-main"
+        name="search-input-main"
+        placeholder="Поиск деревни"
+      />
+    </div>
+    <div class="search-image-main">
+      <button class="search-loupe-main"></button>
+    </div>
+  </div>
+</div>
+<div class="villages-items">
+  {% for v in object_list %}
+  <div class="villages-item">
+    <div class="card">
+      <div class="front"><img src="{{ v.cover.url }}" /></div>
+      <div class="back">
+        <a href="{% url 'main:village' v.pk %}">{{ v.name }}</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %} {% block footer %}
+<footer>
+  {% if is_paginated %}
+  <div class="footer-container">
+    <div class="pagination">
+      <a
+        href="{% if page_obj.has_previous %} {% url 'main:paginator' page_obj.previous_page_number %} {% else %} # {% endif %}"
+        class="{% if not object_list.has_previous %} disabled {% endif %}"
+        >&laquo;</a
+      >
+      {% for page in paginator.page_range %} {% if page_obj.number == page %}
+      <a class="active" href="{% url 'main:paginator' page %}">{{ page }}</a>
+      {% else %}
+      <a href="{% url 'main:paginator' page %}">{{ page }}</a>
+      {% endif %} {% endfor %}
+      <a
+        href="{% if page_obj.has_next %} {% url 'main:paginator' page_obj.next_page_number %} {% else %} # {% endif %}"
+        class="{% if not page_obj.has_next %} disabled {% endif %}"
+        >&raquo;</a
+      >
+    </div>
+  </div>
+  {% endif %}
+</footer>
+{% endblock footer %}

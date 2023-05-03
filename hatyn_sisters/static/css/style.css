@@ -310,8 +310,8 @@ main {
   margin: 20px 0px;
 }
 
-.village-information-text {
-  color: white;
+.village-information-text-container > p {
+  color: white
 }
 
 /*----------------------------------Body bells information---------------------------------*/
@@ -556,6 +556,12 @@ main {
   color: darkred;
 }
 
+.nav-item-map {
+  margin-left: 450px;
+  width: 120px;
+  font-size: 40px;
+}
+
 .nav-item-monument {
   margin-right: 200px;
   width: 580px;
@@ -611,6 +617,11 @@ main {
     font-size: 30px;
     width: 270px;
   }
+  .nav-item-map {
+    margin-left: 420px;
+    width: 100px;
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 860px) {
@@ -623,6 +634,11 @@ main {
   .nav-items > a {
     margin-bottom: 20px;
     margin-right: 20px;
+  }
+  .nav-item-map {
+    margin: 0;
+    width: 100px;
+    font-size: 30px;
   }
   .nav-item-monument {
     margin: 0;

@@ -22,7 +22,7 @@ class Events_videosetInline(TabularInline):
 
 @admin.register(ModelVillages)
 class VillagesAdmin(admin.ModelAdmin):
-    list_display = ["name"]
+    list_display = ["id", "name"]
     inlines = [Villages_imagesetInline]
 
     class Meta:

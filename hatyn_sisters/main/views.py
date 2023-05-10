@@ -38,13 +38,12 @@ def monument(request):
 
 class VillagesListView(ListView):
     model = ModelVillages
-    paginate_by = 1
+    paginate_by = 6
     template_name = 'main/villages.html'  
     
     def get_context_data(self, *, object_list=None, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(object_list=object_list, **kwargs)
         context['title'] = 'Villages'
-        context['villages_obj'] = ModelVillages.objects.all()
         return context
 
 

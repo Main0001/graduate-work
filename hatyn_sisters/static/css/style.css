@@ -41,7 +41,7 @@ header {
   position: fixed;
   height: 100px;
   min-width: 100%;
-  background: rgba(162, 162, 162, 0.3);
+  background: rgba(162, 162, 162, 0.6);
   top: 0;
   left: 0;
   right: 0;
@@ -53,7 +53,9 @@ header {
 }
 
 .logo {
+  margin-left: 20px;
   transition: 1s;
+  z-index: 900;
 }
 
 .logo:hover {
@@ -61,6 +63,12 @@ header {
   -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
   -moz-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+}
+
+.logo-burger-container{
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
 }
 
 .search {
@@ -115,6 +123,88 @@ header {
   }
 }
 
+.menu-btn {
+	width: 40px;
+	height: 80px;
+	position: relative;
+	z-index: 2;
+	overflow: hidden;
+}
+
+.menu-btn span {
+	width: 40px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #222222;
+	transition: all 0.5s;
+}
+
+.menu-btn span:nth-of-type(2) {
+	top: calc(50% - 5px);
+}
+.menu-btn span:nth-of-type(3) {
+	top: calc(50% + 5px);
+}
+
+/* Меняем гамбургер иконку, когда меню открыто */
+.menu-btn.active span:nth-of-type(1) {
+  display: none;
+}
+.menu-btn.active span:nth-of-type(2) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(45deg);  
+}
+.menu-btn.active span:nth-of-type(3) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(-45deg); 
+}
+
+/* Меню, которое будет появляться */
+.menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 15px;
+  background: #000000;
+  opacity: .85;
+	transform: translateX(-100%);
+	transition: transform 0.5s; 
+  z-index: 999;
+}
+
+.menu.active {
+	transform: translateX(0);
+}
+
+.menu nav {
+  margin-top: 120px;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-burger-ul {
+  text-align: center;
+}
+
+.menu-burger-li {
+  color: white;
+  font-size: 40px;
+  transition: 0.4s;
+}
+
+.menu-burger-li:hover {
+  color: darkred;
+  transition: 0.4s;
+}
+
 /*----------------------------------Body villages---------------------------------*/
 
 .background-container {
@@ -140,7 +230,7 @@ header {
   position: relative;
   min-height: 100%;
   min-width: 100%;
-  background-image: url(../img/main_page_background_cadr.jpg);
+  background-image: url(../img/back_cadr_v2.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -274,7 +364,7 @@ main {
   padding: 8px 16px;
   text-decoration: none;
   transition: background-color 0.3s;
-  z-index: 999;
+  z-index: 800;
 }
 
 .pagination a:hover {
@@ -308,10 +398,17 @@ main {
 
 .village-images-item {
   margin: 20px 0px;
+
+}
+
+.village-images-item img{
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .village-information-text-container > p {
-  color: white
+  color: white;
+  padding-bottom: 20px; 
 }
 
 /*----------------------------------Body bells information---------------------------------*/
@@ -564,22 +661,23 @@ main {
 }
 
 /*----------------------------------Main Page---------------------------------*/
-.nav-items {
-  width: min-content;
-  margin: 0 auto;
+.villages-stone-items {
   margin-top: 140px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  width: 900px;
+  position: absolute;
+  right: 100px;
+  transform: rotate(15deg);
 }
 
-.nav-items > a {
-  color: #c2b0ae;
-  transition: 0.5s;
+.villages-stone-items img {
+  width: 300px;
 }
 
-.nav-items > a:hover {
-  transition: 0.5s;
-  color: darkred;
+.villages-stone-items img:hover {
+  box-shadow: 8px 10px 5px 2px rgb(99, 17, 28, .6);
+  transition: 0.4s;
 }
 
 .nav-item-map {
@@ -691,7 +789,19 @@ main {
     width: 270px;
     margin: 0;
   }
+}
+
+@media (max-width: 1440px) {
   .main-page-background-container:before {
     background-color: rgba(0, 0, 0, 0.65);
+  }
+  .villages-stone-items {
+    position: relative;
+    justify-content: center;
+    right: 0;
+    transform: rotate(0deg);
+    margin: 0 auto;
+    margin-top: 140px;
+    width: 100%;
   }
 }

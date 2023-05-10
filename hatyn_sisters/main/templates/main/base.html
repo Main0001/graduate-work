@@ -12,11 +12,19 @@
 		<header>
 			<div class="header-container">
 				<div class="header-panel">
-					<div class="logo">
-						<a href="{% url 'main:index' %}" class="logo-href">
-							<img src="{% static 'img/logo.png' %}">
-						</a>
+					<div class="logo-burger-container">
+						<div class="menu-btn">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<div class="logo">
+							<a href="{% url 'main:index' %}" class="logo-href">
+								<img src="{% static 'img/logo.png' %}">
+							</a>
+						</div>
 					</div>
+
 					<div class="sound-and-search">
 						<div class="sound">
 							<button class="sound-off"></button>
@@ -36,6 +44,21 @@
 		</header>
 		<main>
 			<div class="main-container">
+				<div class="menu">
+					<nav>
+						<div class="menu-burger-ul">
+							<ul>
+								<li><a class="menu-burger-li" href="{% url 'main:index' %}">Главная</a></li>
+								<li><a class="menu-burger-li" href="{% url 'main:map' %}">Карта</a></li>
+								<li><a class="menu-burger-li" href="{% url 'main:monument' %}">Памятник "Непокоренный"</a></li>
+								<li><a class="menu-burger-li" href="{% url 'main:bells' %}">Колокола Хатыни</a></li>
+								<li><a class="menu-burger-li" href="{% url 'main:villages' %}">Все деревни</a></li>
+								<li><a class="menu-burger-li" href="{% url 'main:villages' %}">Все события</a></li>
+								<li><a class="menu-burger-li" href="{% url 'main:villages' %}">Создать событие</a></li>
+							  </ul>
+						</div>
+					</nav>
+				</div>
 				{% block content %}
 				{% endblock content %}
 			</div>
@@ -43,5 +66,7 @@
 		{% block footer %}
 		{% endblock footer %}
 	</div>
+	<script src="{% static 'js/burger.js' %}">
+	</script>
 </body>
 </html>

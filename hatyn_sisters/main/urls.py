@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import index, bells, monument, VillagesListView, MarkersMapView, village_info
+from .views import index, bells, monument, VillagesListView, MarkersMapView, village_info, events
 
 app_name = 'main'
 
@@ -12,4 +12,5 @@ urlpatterns = [
     path('page/<int:page>', VillagesListView.as_view(), name='paginator'),
     path('villages/<int:village_id>/', village_info, name='village'),
     path("map/", MarkersMapView.as_view(), name='map'),
+    path('events/', events, name='events')
 ]

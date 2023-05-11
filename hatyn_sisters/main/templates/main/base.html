@@ -2,71 +2,102 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{{ title }}</title>
     {% block css %} {% endblock css %}
-</head>
-<body>
-	<div class="background-container">
-		<header>
-			<div class="header-container">
-				<div class="header-panel">
-					<div class="logo-burger-container">
-						<div class="menu-btn">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-						<div class="logo">
-							<a href="{% url 'main:index' %}" class="logo-href">
-								<img src="{% static 'img/logo.png' %}">
-							</a>
-						</div>
-					</div>
+  </head>
+  <body>
+    <div class="background-container">
+      <header>
+        <div class="header-container">
+          <div class="header-panel">
+            <div class="logo-burger-container">
+              <div class="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="logo">
+                <a href="{% url 'main:index' %}" class="logo-href">
+                  <img src="{% static 'img/logo.png' %}" />
+                </a>
+              </div>
+            </div>
 
-					<div class="sound-and-search">
-						<div class="sound">
-							<button class="sound-off"></button>
-							<button class="sound-on"></button>
-						</div>
-						<div class="search">
-							<div class="search-field">
-								<input type="search" class="search-input-class" name="search-input" placeholder="Поиск по событиям">
-							</div>
-							<div class="search-image">
-								<button class="search-loupe"></button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-		<main>
-			<div class="main-container">
-				<div class="menu">
-					<nav>
-						<div class="menu-burger-ul">
-							<ul>
-								<li><a class="menu-burger-li" href="{% url 'main:index' %}">Главная</a></li>
-								<li><a class="menu-burger-li" href="{% url 'main:map' %}">Карта</a></li>
-								<li><a class="menu-burger-li" href="{% url 'main:monument' %}">Памятник "Непокоренный"</a></li>
-								<li><a class="menu-burger-li" href="{% url 'main:bells' %}">Колокола Хатыни</a></li>
-								<li><a class="menu-burger-li" href="{% url 'main:villages' %}">Все деревни</a></li>
-								<li><a class="menu-burger-li" href="{% url 'main:villages' %}">Все события</a></li>
-								<li><a class="menu-burger-li" href="{% url 'main:villages' %}">Создать событие</a></li>
-							  </ul>
-						</div>
-					</nav>
-				</div>
-				{% block content %}
-				{% endblock content %}
-			</div>
-		</main>
-		{% block footer %}
-		{% endblock footer %}
-	</div>
-	<script src="{% static 'js/burger.js' %}">
-	</script>
-</body>
+            <div class="sound-and-search">
+              <div class="sound">
+                <button class="sound-off"></button>
+                <button class="sound-on"></button>
+              </div>
+              <div class="search">
+                <div class="search-field">
+                  <input
+                    type="search"
+                    class="search-input-class"
+                    name="search-input"
+                    placeholder="Поиск по событиям"
+                  />
+                </div>
+                <div class="search-image">
+                  <button class="search-loupe"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="main-container">
+          <div class="menu">
+            <nav>
+              <div class="menu-burger-ul">
+                <ul>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:index' %}"
+                      >Главная</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:map' %}"
+                      >Карта</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:monument' %}"
+                      >Памятник "Непокоренный"</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:bells' %}"
+                      >Колокола Хатыни</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:villages' %}"
+                      >Все деревни</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:villages' %}"
+                      >Все события</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:villages' %}"
+                      >Создать событие</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          {% block content %} {% endblock content %}
+        </div>
+      </main>
+      {% block footer %} {% endblock footer %}
+    </div>
+    <script src="{% static 'js/burger.js' %}"></script>
+    {% block script %} {% endblock script %}
+  </body>
 </html>

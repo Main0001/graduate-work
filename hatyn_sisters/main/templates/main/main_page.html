@@ -21,11 +21,11 @@
               </div>
               <div class="logo">
                 <a href="{% url 'main:index' %}" class="logo-href">
-                  <img src="{% static 'img/logo.png' %}">
+                  <img src="{% static 'img/logo.png' %}" />
                 </a>
               </div>
             </div>
-  
+
             <div class="sound-and-search">
               <div class="sound">
                 <button class="sound-off"></button>
@@ -33,7 +33,12 @@
               </div>
               <div class="search">
                 <div class="search-field">
-                  <input type="search" class="search-input-class" name="search-input" placeholder="Поиск по событиям">
+                  <input
+                    type="search"
+                    class="search-input-class"
+                    name="search-input"
+                    placeholder="Поиск по событиям"
+                  />
                 </div>
                 <div class="search-image">
                   <button class="search-loupe"></button>
@@ -49,26 +54,70 @@
             <nav>
               <div class="menu-burger-ul">
                 <ul>
-                  <li><a class="menu-burger-li" href="{% url 'main:index' %}">Главная</a></li>
-                  <li><a class="menu-burger-li" href="{% url 'main:map' %}">Карта</a></li>
-                  <li><a class="menu-burger-li" href="{% url 'main:monument' %}">Памятник "Непокоренный"</a></li>
-                  <li><a class="menu-burger-li" href="{% url 'main:bells' %}">Колокола Хатыни</a></li>
-                  <li><a class="menu-burger-li" href="{% url 'main:villages' %}">Все деревни</a></li>
-                  <li><a class="menu-burger-li" href="{% url 'main:villages' %}">Все события</a></li>
-                  <li><a class="menu-burger-li" href="{% url 'main:villages' %}">Создать событие</a></li>
-                  </ul>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:index' %}"
+                      >Главная</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:map' %}"
+                      >Карта</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:monument' %}"
+                      >Памятник "Непокоренный"</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:bells' %}"
+                      >Колокола Хатыни</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:villages' %}"
+                      >Все деревни</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:events' %}"
+                      >Все события</a
+                    >
+                  </li>
+                  <li>
+                    <a class="menu-burger-li" href="{% url 'main:villages' %}"
+                      >Создать событие</a
+                    >
+                  </li>
+                </ul>
               </div>
             </nav>
           </div>
           <div class="villages-stone-items">
-            <a href="{% url 'main:village' 2 %}"><img src="{% static 'img/Хатынь.png' %}"></a>
-            <a href="{% url 'main:village' 3 %}"><img src="{% static 'img/Бабино.png' %}"></a>
-            <a href="{% url 'main:village' 4 %}"><img src="{% static 'img/Зиняки.png' %}"></a>
-            <a href="{% url 'main:village' 5 %}"><img src="{% static 'img/Шкленск.png' %}"></a>
-            <a href="{% url 'main:village' 7 %}"><img src="{% static 'img/Княжеводцы.png' %}"></a>
-            <a href="{% url 'main:village' 8 %}"><img src="{% static 'img/Шауличи.png' %}"></a>
-            <a href="{% url 'main:village' 9 %}"><img src="{% static 'img/Тонеж.png' %}"></a>
-            <a href="{% url 'main:village' 10 %}"><img src="{% static 'img/Милошевичи.png' %}"></a>
+            <a href="{% url 'main:village' 2 %}"
+              ><img src="{% static 'img/Хатынь.png' %}"
+            /></a>
+            <a href="{% url 'main:village' 3 %}"
+              ><img src="{% static 'img/Бабино.png' %}"
+            /></a>
+            <a href="{% url 'main:village' 4 %}"
+              ><img src="{% static 'img/Зиняки.png' %}"
+            /></a>
+            <a href="{% url 'main:village' 5 %}"
+              ><img src="{% static 'img/Шкленск.png' %}"
+            /></a>
+            <a href="{% url 'main:village' 7 %}"
+              ><img src="{% static 'img/Княжеводцы.png' %}"
+            /></a>
+            <a href="{% url 'main:village' 8 %}"
+              ><img src="{% static 'img/Шауличи.png' %}"
+            /></a>
+            <a href="{% url 'main:village' 9 %}"
+              ><img src="{% static 'img/Тонеж.png' %}"
+            /></a>
+            <a href="{% url 'main:village' 10 %}"
+              ><img src="{% static 'img/Милошевичи.png' %}"
+            /></a>
           </div>
         </div>
       </main>

@@ -35,6 +35,10 @@ def monument(request):
     context = {'title': 'Monument information'}
     return render(request, 'main/monument-information.html', context=context)
 
+def events(request):
+    context = {'title': 'Events'} 
+    return render(request, 'main/events.html', context=context)
+
 
 class VillagesListView(ListView):
     model = ModelVillages

@@ -446,7 +446,7 @@ main {
   margin-top: 20px;
 }
 
-/*----------------------------------Body bells information---------------------------------*/
+/*----------------------------------Body monument information---------------------------------*/
 
 .monument-information-text-container {
   color: white;
@@ -660,6 +660,52 @@ main {
 }
 
 /*----------------------------------Main Page---------------------------------*/
+.slider-container {
+  width: 400px;
+  position: absolute;
+}
+
+.slider-item {
+  max-width: 300px;
+  margin: 10px 10px 10px 50px;
+}
+
+.slider-item img {
+  width: 250px;
+  border: 1px solid #fff;
+  box-shadow:0 0 20px #c72020;
+}
+
+.slick-prev, .slick-next {
+  left: 50%;
+  transform: translate(-50%, 0) rotate(90deg);
+}
+
+.slick-next {
+  top: unset;
+  bottom: -30px;
+}
+
+.slick-prev {
+  top: -30px;
+}
+
+.slick-arrow {
+  width: 60px;
+  margin-left: 150px;
+  transition: 0.4s;
+}
+
+.slick-arrow:hover {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+@media (max-width: 1450px) {
+  .slider-container {
+    display: none;
+  }
+}
 .villages-stone-items {
   margin-top: 140px;
   display: flex;

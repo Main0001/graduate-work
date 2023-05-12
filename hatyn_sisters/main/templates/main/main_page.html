@@ -5,6 +5,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="{% static 'js/slick-lib/slick/slick.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'js/slick-lib/slick/slick-theme.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
     <title>{{ title }}</title>
   </head>
@@ -93,6 +103,13 @@
               </div>
             </nav>
           </div>
+          <div class="slider-container">
+            <div class="slider slick-vertical">
+                {% for v in villages %}
+                  <div class="slider-item"><a href="{% url 'main:village' v.pk %}"><img src="{{ v.cover.url }}"></a></div>
+                {% endfor %}
+            </div>
+          </div>
           <div class="villages-stone-items">
             <a href="{% url 'main:village' 2 %}"
               ><img src="{% static 'img/Хатынь.png' %}"
@@ -123,5 +140,8 @@
       </main>
     </div>
     <script src="{% static 'js/burger.js' %}"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="{% static 'js/slick-lib/slick/slick.min.js' %}"></script>
+    <script src="{% static 'js/slider.js' %}"></script>
   </body>
 </html>

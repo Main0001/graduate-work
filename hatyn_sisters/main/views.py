@@ -24,7 +24,8 @@ class MarkersMapView(TemplateView):
 
 
 def index(request):
-    context = {'title': 'Main page'}
+    villages = ModelVillages.objects.all()[:6]
+    context = {'title': 'Main page', 'villages': villages}
     return render(request, 'main/main_page.html', context=context)
 
 def bells(request):

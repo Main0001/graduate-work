@@ -31,15 +31,15 @@
               </div>
               <div class="logo">
                 <a href="{% url 'main:index' %}" class="logo-href">
-                  <img src="{% static 'img/logo.png' %}" />
+                  <img src="{% static 'gif/hatyn_sisters.gif' %}" />
                 </a>
               </div>
             </div>
 
             <div class="sound-and-search">
               <div class="sound">
-                <button class="sound-off"></button>
-                <button class="sound-on"></button>
+                <button class="sound-off" onclick="soundStop()"></button>
+                <button class="sound-on" onclick="soundStart()"></button>
               </div>
               <div class="search">
                 <div class="search-field">
@@ -105,9 +105,13 @@
           </div>
           <div class="slider-container">
             <div class="slider slick-vertical">
-                {% for v in villages %}
-                  <div class="slider-item"><a href="{% url 'main:village' v.pk %}"><img src="{{ v.cover.url }}"></a></div>
-                {% endfor %}
+              {% for v in villages_obj %}
+              <div class="slider-item">
+                <a href="{% url 'main:village' v.pk %}"
+                  ><img src="{{ v.cover.url }}"
+                /></a>
+              </div>
+              {% endfor %}
             </div>
           </div>
           <div class="villages-stone-items">
@@ -139,6 +143,14 @@
         </div>
       </main>
     </div>
+    <audio
+      src="{% static 'audio/zvon-kolokola-bez-nazvaniya.mp3' %}"
+      id="audio"
+      autoplay
+      loop
+      autobuffer
+    ></audio>
+    <script src="{% static 'js/audio.js' %}"></script>
     <script src="{% static 'js/burger.js' %}"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="{% static 'js/slick-lib/slick/slick.min.js' %}"></script>

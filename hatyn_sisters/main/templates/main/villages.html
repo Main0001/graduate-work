@@ -5,11 +5,19 @@
   <div class="search">
     <div class="search-field-main">
       <input
-        type="search"
+        type="text"
+        list="villageslist"
         class="search-input-class-main"
         name="search-input-main"
         placeholder="Поиск деревни"
       />
+      <datalist id="villageslist">
+        {% for v in villages_obj %}
+        <option value="http://127.0.0.1:8000{% url 'main:village' v.pk %}">
+          {{v.name}}
+        </option>
+        {% endfor %}
+      </datalist>
     </div>
     <div class="search-image-main">
       <button class="search-loupe-main"></button>

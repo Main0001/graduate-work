@@ -31,7 +31,7 @@ class VillagesAdmin(admin.ModelAdmin):
 
 @admin.register(ModelSights)
 class SightsAdmin(admin.ModelAdmin):
-    list_display = ["name", "description"]
+    list_display = ["name"]
 
     class Meta:
         model = ModelSights

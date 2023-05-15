@@ -20,15 +20,15 @@
               </div>
               <div class="logo">
                 <a href="{% url 'main:index' %}" class="logo-href">
-                  <img src="{% static 'img/logo.png' %}" />
+                  <img src="{% static 'gif/hatyn_sisters.gif' %}" />
                 </a>
               </div>
             </div>
 
             <div class="sound-and-search">
               <div class="sound">
-                <button class="sound-off"></button>
-                <button class="sound-on"></button>
+                <button class="sound-off" onclick="soundStop()"></button>
+                <button class="sound-on" onclick="soundStart()"></button>
               </div>
               <div class="search">
                 <div class="search-field">
@@ -97,7 +97,15 @@
       </main>
       {% block footer %} {% endblock footer %}
     </div>
+    <audio
+      src="{% static 'audio/zvon-kolokola-bez-nazvaniya.mp3' %}"
+      id="audio"
+      autoplay
+      loop
+      autobuffer
+    ></audio>
     <script src="{% static 'js/burger.js' %}"></script>
+    <script src="{% static 'js/audio.js' %}"></script>
     {% block script %} {% endblock script %}
   </body>
 </html>

@@ -1,40 +1,53 @@
-from typing import Any, Dict
 from django.shortcuts import render
 import json
 
 from django.core.serializers import serialize
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
-from django.core.paginator import Paginator
+from django.views.generic.detail import DetailView
 
-from .models import Marker, ModelVillages, VillagesImageSet
+from .models import Marker, ModelVillages, VillagesImageSet, ModelSights
 
 
 class MarkersMapView(TemplateView):
-    """Markers map view."""
-
-    template_name = "main/map.html"
-
+    template_name = 'main/map.html'
+    
     def get_context_data(self, **kwargs):
-        """Return the view context data."""
         context = super().get_context_data(**kwargs)
-        context["markers"] = json.loads(serialize("geojson", Marker.objects.all()))
-        context["markers_obj"] = Marker.objects.exclude(village__name = 'Хатынь')
+        context['markers'] = json.loads(serialize('geojson', Marker.objects.all()))
+        context['markers_obj'] = Marker.objects.exclude(village__name = 'Хатынь')
         return context
 
 
-def index(request):
-    villages = ModelVillages.objects.all()[:6]
-    context = {'title': 'Main page', 'villages': villages}
-    return render(request, 'main/main_page.html', context=context)
+class IndexView(TemplateView):
+    template_name = 'main/main-page.html'
 
-def bells(request):
-    context = {'title': 'Bells information'}
-    return render(request, 'main/bells-information.html', context=context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Main page'
+        context['villages_obj'] = ModelVillages.objects.all()[:6]
+        return context
+    
 
-def monument(request):
-    context = {'title': 'Monument information'}
-    return render(request, 'main/monument-information.html', context=context)
+class BellsView(TemplateView):
+    template_name = 'main/bells-information.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Bells information'
+        context['bells_obj'] = ModelSights.objects.filter(name='Колокола Хатыни')
+        return context
+    
+
+class MonumentView(TemplateView):
+    template_name= 'main/monument-information.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Monument information'
+        context['monument_obj'] = ModelSights.objects.filter(name='Колокола Хатыни')
+        return context
+
 
 def events(request):
     context = {'title': 'Events'} 
@@ -44,16 +57,23 @@ def events(request):
 class VillagesListView(ListView):
     model = ModelVillages
     paginate_by = 6
+    context_object_name = 'villages_obj'
     template_name = 'main/villages.html'  
     
-    def get_context_data(self, *, object_list=None, **kwargs: Any) -> Dict[str, Any]:
+    def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
         context['title'] = 'Villages'
         return context
 
 
-def village_info(request, village_id):
-    village_obj = ModelVillages.objects.filter(pk=village_id)
-    img_set = VillagesImageSet.objects.filter(post=village_id)
-    context = {'title': 'Village information', 'village': village_obj, 'img_set': img_set}
-    return render(request, 'main/village-information.html', context=context)
+class VillageInfoView(DetailView):
+    model = ModelVillages
+    template_name = 'main/village-information.html'
+    pk_url_kwarg = 'village_id'
+    context_object_name = 'village_obj'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Village information'
+        context['img_set'] = VillagesImageSet.objects.filter(post=self.get_object().id)
+        return context

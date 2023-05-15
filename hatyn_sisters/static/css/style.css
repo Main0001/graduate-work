@@ -56,16 +56,19 @@ header {
   margin-left: 20px;
   transition: 1s;
   z-index: 900;
+  height: 70px;
+}
+
+.logo img {
+  width: 400px;
 }
 
 .logo:hover {
-  transition: 1s;
-  -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
-  -moz-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  transition: 0.4s;
+  box-shadow: 0px 0px 20px rgb(99, 17, 28, 0.8);
 }
 
-.logo-burger-container{
+.logo-burger-container {
   display: flex;
   margin-right: 20px;
   align-items: center;
@@ -97,6 +100,7 @@ header {
   background: url(../img/sound_on.png) 100% 100% no-repeat;
   width: 40px;
   height: 40px;
+  display: none;
 }
 
 .search-loupe {
@@ -124,29 +128,29 @@ header {
 }
 
 .menu-btn {
-	width: 40px;
-	height: 80px;
-	position: relative;
-	z-index: 2;
-	overflow: hidden;
+  width: 40px;
+  height: 80px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
 }
 
 .menu-btn span {
-	width: 40px;
-	height: 2px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #222222;
-	transition: all 0.5s;
+  width: 40px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #222222;
+  transition: all 0.5s;
 }
 
 .menu-btn span:nth-of-type(2) {
-	top: calc(50% - 5px);
+  top: calc(50% - 5px);
 }
 .menu-btn span:nth-of-type(3) {
-	top: calc(50% + 5px);
+  top: calc(50% + 5px);
 }
 
 /* Меняем гамбургер иконку, когда меню открыто */
@@ -155,30 +159,30 @@ header {
 }
 .menu-btn.active span:nth-of-type(2) {
   top: 50%;
-  transform: translate(-50%, 0%) rotate(45deg);  
+  transform: translate(-50%, 0%) rotate(45deg);
 }
 .menu-btn.active span:nth-of-type(3) {
   top: 50%;
-  transform: translate(-50%, 0%) rotate(-45deg); 
+  transform: translate(-50%, 0%) rotate(-45deg);
 }
 
 /* Меню, которое будет появляться */
 .menu {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
   background: #000000;
-  opacity: .85;
-	transform: translateX(-100%);
-	transition: transform 0.5s; 
+  opacity: 0.85;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
   z-index: 999;
 }
 
 .menu.active {
-	transform: translateX(0);
+  transform: translateX(0);
 }
 
 .menu nav {
@@ -230,7 +234,7 @@ header {
   position: relative;
   min-height: 100%;
   min-width: 100%;
-  background-image: url(../img/back_cadr_v2.jpg);
+  background-image: url(../img/background_main_page.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -336,7 +340,7 @@ main {
 .front img {
   max-width: 100%;
   min-width: 100%;
-  height: auto;
+  height: 250px;
 }
 
 .back {
@@ -398,20 +402,23 @@ main {
 
 .village-images-item {
   margin: 20px 0px;
-
 }
 
-.village-images-item img{
+.village-images-item img {
   max-width: 500px;
   max-height: 500px;
 }
 
 .village-information-text-container > p {
   color: white;
-  padding-bottom: 20px; 
+  padding-bottom: 20px;
 }
 
 /*----------------------------------Body bells information---------------------------------*/
+.bells-information-text-container {
+  color: white;
+  padding-bottom: 20px;
+}
 
 .bells-information-title {
   text-align: center;
@@ -450,6 +457,7 @@ main {
 
 .monument-information-text-container {
   color: white;
+  padding-bottom: 20px;
 }
 
 .monument-information-title {
@@ -547,7 +555,6 @@ main {
 
 #myInput {
   height: 50px;
-  border-box: box-sizing;
   background-color: rgba(0, 0, 0, 0.4);
   background-image: url(../img/searchicon.png);
   background-position: 14px 12px;
@@ -565,7 +572,6 @@ main {
 
 .myInput1 {
   height: 50px;
-  border-box: box-sizing;
   background-color: rgba(0, 0, 0, 0.4);
   background-image: url(../img/searchicon.png);
   background-position: 14px 12px;
@@ -673,10 +679,11 @@ main {
 .slider-item img {
   width: 250px;
   border: 1px solid #fff;
-  box-shadow:0 0 20px #c72020;
+  box-shadow: 0 0 20px #c72020;
 }
 
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
   left: 50%;
   transform: translate(-50%, 0) rotate(90deg);
 }
@@ -721,7 +728,7 @@ main {
 }
 
 .villages-stone-items img:hover {
-  box-shadow: 8px 10px 5px 2px rgb(99, 17, 28, .6);
+  box-shadow: 8px 10px 5px 2px rgb(99, 17, 28, 0.6);
   transition: 0.4s;
 }
 

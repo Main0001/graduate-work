@@ -35,7 +35,7 @@ class ModelVillages(models.Model):
         return f'Деревня: "{self.name}"'
 
     def get_absolute_url(self):
-        return reverse('village', kwargs={'village_id': self.pk}) #f'{self.pk}/'
+        return reverse('main:village', kwargs={'village_id': self.pk}) #f'{self.pk}/'
 
 
 class VillagesImageSet(models.Model):

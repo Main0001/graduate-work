@@ -296,13 +296,6 @@ main {
   font-family: Tahoma;
 }
 
-.search-loupe-main {
-  border: 0;
-  background: url(../img/loupe60.png) 100% 100% no-repeat;
-  width: 60px;
-  height: 60px;
-}
-
 .villages-items {
   margin-top: 20px;
   display: flex;

@@ -5,22 +5,18 @@
   <div class="search">
     <div class="search-field-main">
       <input
-        type="text"
+        type="search"
         list="villageslist"
         class="search-input-class-main"
         name="search-input-main"
         placeholder="Поиск деревни"
+        oninput="handleSearchInput(this.value)"
       />
       <datalist id="villageslist">
         {% for v in villages_obj %}
-        <option value="http://127.0.0.1:8000{% url 'main:village' v.pk %}">
-          {{v.name}}
-        </option>
+        <option value="{{v.name}}" data-link="{{ v.get_absolute_url }}"></option>
         {% endfor %}
       </datalist>
-    </div>
-    <div class="search-image-main">
-      <button class="search-loupe-main"></button>
     </div>
   </div>
 </div>
@@ -30,7 +26,7 @@
     <div class="card">
       <div class="front"><img src="{{ v.cover.url }}" /></div>
       <div class="back">
-        <a href="{% url 'main:village' v.pk %}">{{ v.name }}</a>
+        <a href="{{ v.get_absolute_url }}">{{ v.name }}</a>
       </div>
     </div>
   </div>
@@ -61,3 +57,6 @@
   {% endif %}
 </footer>
 {% endblock footer %}
+{% block script %}
+<script src="{% static 'js/list.js' %}"></script>
+{% endblock script %}

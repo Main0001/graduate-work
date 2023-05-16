@@ -1,0 +1,1 @@
+[{"model": "main.modelsightseventscategories", "pk": 1, "fields": {"name": "Деревни", "description": ""}}, {"model": "main.modelsightseventscategories", "pk": 2, "fields": {"name": "Достопримечательности", "description": ""}}, {"model": "main.modelsightseventscategories", "pk": 3, "fields": {"name": "События", "description": ""}}]

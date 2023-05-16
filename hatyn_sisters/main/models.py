@@ -2,7 +2,9 @@ from django.db import models
 from django.urls import reverse
 
 from django.contrib.gis.db.models import PointField
+
 from ckeditor_uploader.fields import RichTextUploadingField
+from embed_video.fields import EmbedVideoField
 
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
@@ -70,8 +72,11 @@ class ModelEvents(models.Model):
     name = models.CharField(max_length=128, verbose_name='Название')
     description = RichTextUploadingField(blank=True, null=True, verbose_name='Описание')
     date = models.DateField(verbose_name='Дата')
-    sights = models.ForeignKey(to=ModelSights, on_delete=models.CASCADE, verbose_name='Достопримечательность')
+    video = EmbedVideoField(blank=True, null=True, verbose_name='Ссылка на видео в youtube')
+    village = models.ForeignKey(to=ModelVillages, on_delete=models.CASCADE, verbose_name='Деревня')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
+    draft = models.BooleanField(default=True, verbose_name='Черновик')
+    
 
     class Meta:
         verbose_name = 'событие'
@@ -82,11 +87,11 @@ class ModelEvents(models.Model):
 
 
 class EventsImageSet(models.Model):
-    id = models.AutoField
-    object_id = models.PositiveIntegerField(null=True, default=1)
+    id = models.AutoField(primary_key=True)
+    object_id = models.PositiveIntegerField()
     post = models.ForeignKey(to=ModelEvents, null=True, blank=True, verbose_name="Статья", on_delete=models.SET_NULL)
     image = models.ImageField(upload_to='events_media_images/%Y/%m/%d/', blank=True, null=True, verbose_name='Изображение')
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, default=20)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     content_object = GenericForeignKey("content_type", "object_id")
 
     class Meta:
@@ -94,17 +99,17 @@ class EventsImageSet(models.Model):
         verbose_name_plural = 'Фото к событиям'
 
 
-class EventsVideoSet(models.Model):
-    id = models.AutoField
-    object_id = models.PositiveIntegerField(null=True)
-    post = models.ForeignKey(to=ModelEvents, null=True, blank=True, verbose_name="Статья", on_delete=models.SET_NULL)
-    video = models.FileField(upload_to='events_media_videos/%Y/%m/%d/', blank=True, null=True, verbose_name='Видео')
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, default=20)
-    content_object = GenericForeignKey("content_type", "object_id")
+# class EventsVideoSet(models.Model):
+#     id = models.AutoField
+#     object_id = models.PositiveIntegerField(null=True)
+#     post = models.ForeignKey(to=ModelEvents, null=True, blank=True, verbose_name="Статья", on_delete=models.SET_NULL)
+#     video = models.FileField(upload_to='events_media_videos/%Y/%m/%d/', blank=True, null=True, verbose_name='Видео')
+#     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, default=20)
+#     content_object = GenericForeignKey("content_type", "object_id")
 
-    class Meta:
-        verbose_name = 'Видео к статье'
-        verbose_name_plural = 'Видео к статьям'
+#     class Meta:
+#         verbose_name = 'Видео к статье'
+#         verbose_name_plural = 'Видео к статьям'
 
 
 class Marker(models.Model):

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'ckeditor',
     'ckeditor_uploader',
+    'embed_video',
     'main'
 ]
 

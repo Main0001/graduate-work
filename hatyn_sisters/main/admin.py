@@ -2,7 +2,9 @@ from django.contrib import admin
 import django.contrib.gis.admin as OSMGadmin
 from django.contrib.admin import TabularInline
 
-from .models import ModelSights, ModelEvents, ModelSightsEventsCategories, Marker, ModelVillages, VillagesImageSet, EventsImageSet, EventsVideoSet
+from embed_video.admin import AdminVideoMixin
+
+from .models import ModelSights, ModelEvents, ModelSightsEventsCategories, Marker, ModelVillages, VillagesImageSet, EventsImageSet #, EventsVideoSet
 
 
 class Villages_imagesetInline(TabularInline):
@@ -15,9 +17,9 @@ class Events_imagesetInline(TabularInline):
     readonly_fields = ["object_id"]
 
 
-class Events_videosetInline(TabularInline):
-    model = EventsVideoSet
-    readonly_fields = ["object_id"]
+# class Events_videosetInline(TabularInline):
+#     model = EventsVideoSet
+#     readonly_fields = ["object_id"]
 
 
 @admin.register(ModelVillages)
@@ -38,9 +40,9 @@ class SightsAdmin(admin.ModelAdmin):
 
 
 @admin.register(ModelEvents)
-class EventsAdmin(admin.ModelAdmin):
+class EventsAdmin(AdminVideoMixin, admin.ModelAdmin):
     list_display = ["name", "date","description"]
-    inlines = [Events_imagesetInline, Events_videosetInline]
+    inlines = [Events_imagesetInline] #, Events_videosetInline]
 
     class Meta:
         model = ModelEvents

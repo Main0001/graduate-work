@@ -1,12 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import json
+
 
 from django.core.serializers import serialize
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
-from .models import Marker, ModelVillages, VillagesImageSet, ModelSights
+from django.contrib.contenttypes.models import ContentType
+
+from .models import Marker, ModelVillages, VillagesImageSet, ModelSights, ModelEvents, EventsImageSet
+from .forms import EventForm, EventImageFormSet
 
 
 class MarkersMapView(TemplateView):
@@ -77,3 +81,31 @@ class VillageInfoView(DetailView):
         context['title'] = 'Village information'
         context['img_set'] = VillagesImageSet.objects.filter(post=self.get_object().id)
         return context
+    
+
+def create_event(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        formset = EventImageFormSet(request.POST, request.FILES, prefix='eventsimageset_set')
+        print(request.FILES)
+        
+        if form.is_valid() and formset.is_valid():
+            event = form.save()
+            
+            for i, form in enumerate(formset.forms):
+                if form.is_valid() and f'eventsimageset_set-{i}-image' in request.FILES:
+                    image = request.FILES.getlist(f'eventsimageset_set-{i}-image')[:6]
+                    for img in image:
+                        instance = EventsImageSet(post=event, image=img, content_type=ContentType.objects.get_for_model(ModelEvents), object_id=event.id)
+                        instance.save()
+            return redirect('main:index')
+            
+    else:
+        form = EventForm()
+        formset = EventImageFormSet(prefix='eventsimageset_set')
+    
+    context = {
+        'form': form,
+        'formset': formset
+    }
+    return render(request, 'main/create-event.html', context)

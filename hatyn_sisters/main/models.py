@@ -84,6 +84,9 @@ class ModelEvents(models.Model):
 
     def __str__(self):
         return f'Событие: "{self.name}"'
+    
+    def get_absolute_url(self):
+        return reverse('main:event', kwargs={'event_id': self.pk})
 
 
 class EventsImageSet(models.Model):
@@ -97,19 +100,6 @@ class EventsImageSet(models.Model):
     class Meta:
         verbose_name = 'Фото к событию'
         verbose_name_plural = 'Фото к событиям'
-
-
-# class EventsVideoSet(models.Model):
-#     id = models.AutoField
-#     object_id = models.PositiveIntegerField(null=True)
-#     post = models.ForeignKey(to=ModelEvents, null=True, blank=True, verbose_name="Статья", on_delete=models.SET_NULL)
-#     video = models.FileField(upload_to='events_media_videos/%Y/%m/%d/', blank=True, null=True, verbose_name='Видео')
-#     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, default=20)
-#     content_object = GenericForeignKey("content_type", "object_id")
-
-#     class Meta:
-#         verbose_name = 'Видео к статье'
-#         verbose_name_plural = 'Видео к статьям'
 
 
 class Marker(models.Model):

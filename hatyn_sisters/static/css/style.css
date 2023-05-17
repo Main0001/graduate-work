@@ -103,13 +103,6 @@ header {
   display: none;
 }
 
-.search-loupe {
-  border: 0;
-  background: url(../img/loupe.png) 100% 100% no-repeat;
-  width: 40px;
-  height: 40px;
-}
-
 .search-input-class {
   width: 302px;
   height: 40px;
@@ -563,8 +556,9 @@ main {
   outline: 3px solid #ddd;
 }
 
-.myInput1 {
+.events-input-filter {
   height: 50px;
+  width: 348px;
   background-color: rgba(0, 0, 0, 0.4);
   background-image: url(../img/searchicon.png);
   background-position: 14px 12px;
@@ -589,10 +583,6 @@ main {
   background-color: rgba(0, 0, 0, 0.1);
   color: white;
   margin-top: 15px;
-}
-
-.filters-inputs-container {
-  display: flex;
 }
 
 .dropdown {
@@ -656,6 +646,23 @@ main {
   color: white;
   font-size: 48px;
   margin-bottom: 10px;
+}
+
+.create-event-button {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid #bb2a2a;
+  border-radius: 10px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 400px;
+}
+
+.create-event-button:hover,
+.create-event-button:focus {
+  background-color: #3e8e41;
+  background-color: rgba(140, 0, 0, 0.7);
 }
 
 /*----------------------------------Main Page---------------------------------*/
@@ -849,4 +856,175 @@ main {
     margin-top: 140px;
     width: 100%;
   }
+}
+
+/*----------------------------------Create event Page---------------------------------*/
+
+.create-event-form-container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.create-event-form {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 500px;
+  height: 740px;
+}
+
+.create-event-form label {
+  font-size: 20px;
+  color: white;
+}
+
+#id_name {
+  margin-top: 0px;
+}
+
+.form-add-name {
+  width: 400px;
+  height: 50px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+#id_description {
+  width: 400px;
+  height: 250px;
+  margin-bottom: 20px;
+  resize: none;
+}
+
+.form-add-date {
+  width: 200px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.form-add-video {
+  width: 400px;
+  height: 30px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.form-add-village {
+  width: 400px;
+  height: 30px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.form-add-images {
+  height: 30px;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+input::-webkit-file-upload-button {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgb(211, 45, 45);
+  width: 140px;
+  height: 30px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px 1px #454545;
+  cursor: pointer;
+}
+
+.create-event-submit {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid #bb2a2a;
+  border-radius: 10px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 400px;
+  margin-left: 50px;
+}
+
+.create-event-submit:hover,
+.create-event-submit:focus {
+  background-color: #3e8e41;
+  background-color: rgba(140, 0, 0, 0.7);
+}
+
+@media (max-width: 950px) {
+  .logo {
+    width: 300px;
+  }
+  .logo img {
+    width: 300px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 790px) {
+  .logo {
+    width: 200px;
+  }
+  .logo img {
+    width: 200px;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 680px) {
+  .logo {
+    width: 100px;
+  }
+  .logo img {
+    width: 120px;
+    margin-top: 25px;
+  }
+}
+
+/*----------------------------------Event info Page---------------------------------*/
+
+.event-information-title {
+  text-align: center;
+  color: white;
+  font-size: 48px;
+}
+
+.event-images-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0px 20px 0px;
+  align-items: center;
+}
+
+.event-images-item {
+  margin: 20px 0px;
+}
+
+.event-images-item img {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.event-information-text-container > p {
+  color: white;
+  padding-bottom: 20px;
+}
+
+.event-video-container {
+  margin-top: 20px;
+  text-align: center;
+  min-height: 400px;
 }

@@ -12,18 +12,10 @@
         <div class="filters-inputs-container">
           <input
             type="text"
-            class="myInput1"
+            class="events-input-filter"
             placeholder="Поиск.."
             onkeyup="filterFunction1('myDropdown')"
           />
-          <div class="input-filter-date">
-            <input
-              type="date"
-              class="date-filter"
-              placeholder="Выберите дату"
-              id="myInputDate"
-            />
-          </div>
         </div>
         <a href="#about">Событие1</a>
         <a href="#base">Событие2</a>
@@ -31,7 +23,7 @@
         <a href="#contact">Событие</a>
         <a href="#custom">Событие</a>
         <a href="#support">Событие</a>
-        <a href="#tools">Событие</a>
+        <a href="#tools">0Событие</a>
       </div>
     </div>
     <div class="dropdown">
@@ -42,18 +34,10 @@
         <div class="filters-inputs-container">
           <input
             type="text"
-            class="myInput1"
+            class="events-input-filter"
             placeholder="Поиск.."
             onkeyup="filterFunction1('myDropdown1')"
           />
-          <div class="input-filter-date">
-            <input
-              type="date"
-              class="date-filter"
-              placeholder="Выберите дату"
-              id="myInputDate"
-            />
-          </div>
         </div>
         <a href="#about">Событие</a>
         <a href="#base">Событие</a>
@@ -65,24 +49,10 @@
       </div>
     </div>
   </div>
-  <div class="dropdown-filters">
-    <button onclick="myFunction('myDropdown2')" class="dropbtn">
-      Выберите деревню из предложенных
-    </button>
-    <div id="myDropdown2" class="dropdown-content">
-      <div class="filters-inputs">
-        <select class="village-filter">
-          <option value="" hidden selected disabled>Выбрать</option>
-          <option>Деревня 1</option>
-          <option>Деревня 2</option>
-        </select>
-      </div>
-    </div>
-  </div>
 </div>
-<button class="dropbtn">
-  Добавить событие
-</button>
+<a class="create-event-button-text" href="{% url 'main:create_event' %}">
+  <button class="create-event-button">Добавить событие</button>
+</a>
 {% endblock content %} {% block footer %}
 <footer>
   <div class="footer-container-events">
@@ -99,5 +69,5 @@
   </div>
 </footer>
 {% endblock footer %} {% block script %}
-<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static 'js/filter-events.js' %}"></script>
 {% endblock script %}

@@ -53,11 +53,6 @@ class MonumentView(TemplateView):
         return context
 
 
-def events(request):
-    context = {'title': 'Events'} 
-    return render(request, 'main/events.html', context=context)
-
-
 class VillagesListView(ListView):
     model = ModelVillages
     paginate_by = 6
@@ -81,7 +76,7 @@ class VillageInfoView(DetailView):
         context['title'] = 'Village information'
         context['img_set'] = VillagesImageSet.objects.filter(post=self.get_object().id)
         return context
-    
+
 
 def create_event(request):
     if request.method == 'POST':
@@ -109,3 +104,22 @@ def create_event(request):
         'formset': formset
     }
     return render(request, 'main/create-event.html', context)
+
+
+
+def events(request):
+    context = {'title': 'Events'} 
+    return render(request, 'main/events.html', context=context)
+
+
+class EventInfoView(DetailView):
+    model = ModelEvents
+    template_name = 'main/event-information.html'
+    pk_url_kwarg = 'event_id'
+    context_object_name = 'event_obj'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Event information'
+        context['img_set'] = EventsImageSet.objects.filter(post=self.get_object().id)
+        return context

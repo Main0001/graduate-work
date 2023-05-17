@@ -34,14 +34,21 @@
                 <div class="search-field">
                   <input
                     type="search"
+                    list="eventslist"
                     class="search-input-class"
                     name="search-input"
                     placeholder="Поиск по событиям"
+                    oninput="handleSearchInputEvents(this.value)"
                   />
                 </div>
-                <div class="search-image">
-                  <button class="search-loupe"></button>
-                </div>
+                <datalist id="eventslist">
+                  {% for e in events_obj_context %}
+                  <option
+                    value="{{e.name}}"
+                    data-link="{{ e.get_absolute_url }}"
+                  ></option>
+                  {% endfor %}
+                </datalist>
               </div>
             </div>
           </div>
@@ -79,12 +86,14 @@
                     >
                   </li>
                   <li>
-                    <a class="menu-burger-li" href="{% url 'main:villages' %}"
+                    <a class="menu-burger-li" href="{% url 'main:events' %}"
                       >Все события</a
                     >
                   </li>
                   <li>
-                    <a class="menu-burger-li" href="{% url 'main:villages' %}"
+                    <a
+                      class="menu-burger-li"
+                      href="{% url 'main:create_event' %}"
                       >Создать событие</a
                     >
                   </li>
@@ -106,6 +115,7 @@
     ></audio>
     <script src="{% static 'js/burger.js' %}"></script>
     <script src="{% static 'js/audio.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
     {% block script %} {% endblock script %}
   </body>
 </html>

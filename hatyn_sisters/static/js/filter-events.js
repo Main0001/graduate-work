@@ -21,7 +21,7 @@ function filterFunction(drop) {
 
 function filterFunction1(drop) {
     var input, filter, ul, li, a, i, chapter;
-    chapter = document.querySelector('.myInput1');
+    chapter = document.querySelector('.events-input-filter');
     filter = chapter.value.toUpperCase();
     drop = String(drop)
     div = document.getElementById(drop);

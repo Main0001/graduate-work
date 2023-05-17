@@ -4,27 +4,22 @@ from django.contrib.admin import TabularInline
 
 from embed_video.admin import AdminVideoMixin
 
-from .models import ModelSights, ModelEvents, ModelSightsEventsCategories, Marker, ModelVillages, VillagesImageSet, EventsImageSet #, EventsVideoSet
+from .models import ModelSights, ModelEvents, ModelSightsEventsCategories, Marker, ModelVillages, VillagesImageSet, EventsImageSet
 
 
 class Villages_imagesetInline(TabularInline):
     model = VillagesImageSet
-    readonly_fields = ["object_id"]
+    readonly_fields = ['object_id']
 
 
 class Events_imagesetInline(TabularInline):
     model = EventsImageSet
-    readonly_fields = ["object_id"]
-
-
-# class Events_videosetInline(TabularInline):
-#     model = EventsVideoSet
-#     readonly_fields = ["object_id"]
-
+    readonly_fields = ['object_id']
 
 @admin.register(ModelVillages)
 class VillagesAdmin(admin.ModelAdmin):
-    list_display = ["id", "name"]
+    list_display = ['id', 'name']
+    search_fields = ['name']
     inlines = [Villages_imagesetInline]
 
     class Meta:
@@ -33,7 +28,8 @@ class VillagesAdmin(admin.ModelAdmin):
 
 @admin.register(ModelSights)
 class SightsAdmin(admin.ModelAdmin):
-    list_display = ["name"]
+    list_display = ['id', 'name']
+    search_fields = ['name']
 
     class Meta:
         model = ModelSights
@@ -41,8 +37,9 @@ class SightsAdmin(admin.ModelAdmin):
 
 @admin.register(ModelEvents)
 class EventsAdmin(AdminVideoMixin, admin.ModelAdmin):
-    list_display = ["name", "date","description"]
-    inlines = [Events_imagesetInline] #, Events_videosetInline]
+    list_display = ['id', 'name', 'date', 'draft']
+    search_fields = ['name']
+    inlines = [Events_imagesetInline]
 
     class Meta:
         model = ModelEvents
@@ -50,7 +47,7 @@ class EventsAdmin(AdminVideoMixin, admin.ModelAdmin):
 
 @admin.register(ModelSightsEventsCategories)
 class CategoriesAdmin(admin.ModelAdmin):
-    list_display = ["name", "description"]
+    list_display = ['name', 'description']
 
     class Meta:
         model = ModelSightsEventsCategories
@@ -58,7 +55,8 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 @admin.register(Marker)
 class MarkerAdmin(OSMGadmin.OSMGeoAdmin):
-    list_display = ["name", "location"]
+    list_display = ['name', 'location']
+    search_fields = ['name']
 
     class Meta:
         model = Marker

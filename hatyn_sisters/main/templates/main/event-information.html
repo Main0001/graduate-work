@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %} {% load static %} {% load embed_video_tags %} {%block css %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet" />
+{% endblock css %} {% block content %}
+<h1 class="event-information-title">{{event_obj.name}}</h1>
+{% if event_obj.video %}
+<div class="event-video-container">
+  {% video event_obj.video '100% x 600px' %}
+</div>
+{% endif %}
+<div class="event-images-items">
+  {% for img in img_set %} {% if img.image %}
+  <div class="event-images-item"><img src="{{img.image.url}}" /></div>
+  {% endif %} {% endfor %}
+</div>
+<div class="event-information-text-container">
+  {% autoescape off %}
+  <p class="event-information-text">{{ event_obj.description }}</p>
+  {% endautoescape %}
+</div>
+{% endblock content %}

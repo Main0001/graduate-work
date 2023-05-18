@@ -4,50 +4,26 @@
 <h2 class="events-information-title">События</h2>
 <div class="dropdown-container">
   <div class="dropdown-content-container">
+    {% for v in villages_obj %}
     <div class="dropdown">
-      <button onclick="myFunction('myDropdown')" class="dropbtn">
-        Деревня такая-то
+      <button onclick="myFunction('myDropdown{{v.pk}}')" class="dropbtn">
+        {{v.name}}
       </button>
-      <div id="myDropdown" class="dropdown-content">
+      <div id="myDropdown{{v.pk}}" class="dropdown-content">
         <div class="filters-inputs-container">
           <input
             type="text"
             class="events-input-filter"
             placeholder="Поиск.."
-            onkeyup="filterFunction1('myDropdown')"
+            onkeyup="filterFunction('myDropdown{{v.pk}}')"
           />
         </div>
-        <a href="#about">Событие1</a>
-        <a href="#base">Событие2</a>
-        <a href="#blog">Событие</a>
-        <a href="#contact">Событие</a>
-        <a href="#custom">Событие</a>
-        <a href="#support">Событие</a>
-        <a href="#tools">0Событие</a>
+        {% for e in events_obj %} {% if e.village.id == v.pk %}
+        <a href="{{ e.get_absolute_url }}">{{ e.name }}</a>
+        {% endif %} {% endfor %}
       </div>
     </div>
-    <div class="dropdown">
-      <button onclick="myFunction('myDropdown1')" class="dropbtn">
-        Деревня такая-то2
-      </button>
-      <div id="myDropdown1" class="dropdown-content">
-        <div class="filters-inputs-container">
-          <input
-            type="text"
-            class="events-input-filter"
-            placeholder="Поиск.."
-            onkeyup="filterFunction1('myDropdown1')"
-          />
-        </div>
-        <a href="#about">Событие</a>
-        <a href="#base">Событие</a>
-        <a href="#blog">Событие</a>
-        <a href="#contact">Событие</a>
-        <a href="#custom">Событие</a>
-        <a href="#support">Событие</a>
-        <a href="#tools">Событие</a>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 </div>
 <a class="create-event-button-text" href="{% url 'main:create_event' %}">
@@ -55,18 +31,29 @@
 </a>
 {% endblock content %} {% block footer %}
 <footer>
-  <div class="footer-container-events">
+  {% if is_paginated %}
+  <div class="footer-container">
     <div class="pagination">
-      <a href="#">&laquo;</a>
-      <a href="#">1</a>
-      <a class="active" href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">6</a>
-      <a href="#">&raquo;</a>
+      <a
+        href="{% if page_obj.has_previous %} {% url 'main:paginator_events' page_obj.previous_page_number %} {% else %} # {% endif %}"
+        class="{% if not object_list.has_previous %} disabled {% endif %}"
+        >&laquo;</a
+      >
+      {% for page in paginator.page_range %} {% if page_obj.number == page %}
+      <a class="active" href="{% url 'main:paginator_events' page %}"
+        >{{ page }}</a
+      >
+      {% else %}
+      <a href="{% url 'main:paginator_events' page %}">{{ page }}</a>
+      {% endif %} {% endfor %}
+      <a
+        href="{% if page_obj.has_next %} {% url 'main:paginator_events' page_obj.next_page_number %} {% else %} # {% endif %}"
+        class="{% if not page_obj.has_next %} disabled {% endif %}"
+        >&raquo;</a
+      >
     </div>
   </div>
+  {% endif %}
 </footer>
 {% endblock footer %} {% block script %}
 <script src="{% static 'js/filter-events.js' %}"></script>

@@ -101,15 +101,23 @@ def create_event(request):
     
     context = {
         'form': form,
-        'formset': formset
+        'formset': formset,
+        'title': 'Create event'
     }
     return render(request, 'main/create-event.html', context)
 
 
+class EventsListView(ListView):
+    model = ModelVillages
+    paginate_by = 12
+    context_object_name = 'villages_obj'
+    template_name = 'main/events.html'    
 
-def events(request):
-    context = {'title': 'Events'} 
-    return render(request, 'main/events.html', context=context)
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['title'] = 'Events'
+        context['events_obj'] = ModelEvents.objects.filter(draft=False)
+        return context
 
 
 class EventInfoView(DetailView):

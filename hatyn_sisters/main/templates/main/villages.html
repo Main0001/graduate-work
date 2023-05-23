@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %} {% load static %} {% block css %}
+{% extends 'main/base.html' %} {% load static %} {% load i18n %} {% block css %}
 <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 {% endblock css %} {% block content %}
 <div class="main-search-container">
@@ -9,7 +9,7 @@
         list="villageslist"
         class="search-input-class-main"
         name="search-input-main"
-        placeholder="Поиск деревни"
+        placeholder="{% trans 'Villages search' %}"
         oninput="handleSearchInputVillages(this.value)"
       />
       <datalist id="villageslist">

@@ -4,6 +4,8 @@ from django.contrib.admin import TabularInline
 
 from embed_video.admin import AdminVideoMixin
 
+from modeltranslation.admin import TranslationAdmin
+
 from .models import ModelSights, ModelEvents, ModelSightsEventsCategories, Marker, ModelVillages, VillagesImageSet, EventsImageSet
 
 
@@ -17,7 +19,7 @@ class Events_imagesetInline(TabularInline):
     readonly_fields = ['object_id']
 
 @admin.register(ModelVillages)
-class VillagesAdmin(admin.ModelAdmin):
+class VillagesAdmin(TranslationAdmin):
     list_display = ['id', 'name']
     search_fields = ['name']
     inlines = [Villages_imagesetInline]
@@ -27,7 +29,7 @@ class VillagesAdmin(admin.ModelAdmin):
 
 
 @admin.register(ModelSights)
-class SightsAdmin(admin.ModelAdmin):
+class SightsAdmin(TranslationAdmin):
     list_display = ['id', 'name']
     search_fields = ['name']
 
@@ -36,7 +38,7 @@ class SightsAdmin(admin.ModelAdmin):
 
 
 @admin.register(ModelEvents)
-class EventsAdmin(AdminVideoMixin, admin.ModelAdmin):
+class EventsAdmin(TranslationAdmin, AdminVideoMixin):
     list_display = ['id', 'name', 'date', 'draft']
     search_fields = ['name']
     inlines = [Events_imagesetInline]
@@ -46,7 +48,7 @@ class EventsAdmin(AdminVideoMixin, admin.ModelAdmin):
 
 
 @admin.register(ModelSightsEventsCategories)
-class CategoriesAdmin(admin.ModelAdmin):
+class CategoriesAdmin(TranslationAdmin):
     list_display = ['name', 'description']
 
     class Meta:
@@ -54,7 +56,7 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 
 @admin.register(Marker)
-class MarkerAdmin(OSMGadmin.OSMGeoAdmin):
+class MarkerAdmin(OSMGadmin.OSMGeoAdmin, TranslationAdmin):
     list_display = ['name', 'location']
     search_fields = ['name']
 

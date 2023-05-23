@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +25,21 @@
                 </a>
               </div>
             </div>
-
             <div class="sound-and-search">
+              <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Go">
+              </form>
               <div class="sound">
                 <button class="sound-off" onclick="soundStop()"></button>
                 <button class="sound-on" onclick="soundStart()"></button>
@@ -37,7 +51,7 @@
                     list="eventslist"
                     class="search-input-class"
                     name="search-input"
-                    placeholder="Поиск по событиям"
+                    placeholder="{% trans 'Events search' %}"
                     oninput="handleSearchInputEvents(this.value)"
                   />
                 </div>
@@ -62,39 +76,39 @@
                 <ul>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:index' %}"
-                      >Главная</a
+                      >{% trans 'Home' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:map' %}"
-                      >Карта</a
+                      >{% trans 'Map' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:monument' %}"
-                      >Памятник "Непокоренный"</a
+                      >{% trans 'Monument "Unconquered"' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:bells' %}"
-                      >Колокола Хатыни</a
+                      >{% trans 'Bells of Khatyn' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:villages' %}"
-                      >Все деревни</a
+                      >{% trans 'All villages' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:events' %}"
-                      >Все события</a
+                      >{% trans 'All events' %}</a
                     >
                   </li>
                   <li>
                     <a
                       class="menu-burger-li"
                       href="{% url 'main:create_event' %}"
-                      >Создать событие</a
+                      >{% trans 'Create event' %}</a
                     >
                   </li>
                 </ul>

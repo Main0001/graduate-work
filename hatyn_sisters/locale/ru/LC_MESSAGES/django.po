@@ -1,0 +1,175 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-23 14:34+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: hatyn_sisters/settings.py:205
+msgid "Russian"
+msgstr "Русский"
+
+#: hatyn_sisters/settings.py:206
+msgid "English"
+msgstr "Английский"
+
+#: main/models.py:15 main/models.py:27 main/models.py:59 main/models.py:74
+#: main/models.py:108
+msgid "name"
+msgstr "название"
+
+#: main/models.py:16 main/models.py:28 main/models.py:60 main/models.py:75
+#: main/models.py:109
+msgid "description"
+msgstr "описание"
+
+#: main/models.py:19 main/models.py:29 main/models.py:62
+msgid "category"
+msgstr "категория"
+
+#: main/models.py:20
+msgid "categories"
+msgstr "категории"
+
+#: main/models.py:30
+msgid "cover"
+msgstr "обложка"
+
+#: main/models.py:31
+msgid "stone inscription"
+msgstr "каменная надпись"
+
+#: main/models.py:32 main/models.py:63 main/models.py:79
+msgid "time create"
+msgstr "время создания"
+
+#: main/models.py:35 main/models.py:78
+msgid "village"
+msgstr "деревня"
+
+#: main/models.py:36
+msgid "villages"
+msgstr "деревни"
+
+#: main/models.py:48 main/models.py:97
+msgid "post"
+msgstr "запись"
+
+#: main/models.py:49 main/models.py:61 main/models.py:98
+msgid "image"
+msgstr "изображение"
+
+#: main/models.py:54
+msgid "image for village"
+msgstr "изображение деревни"
+
+#: main/models.py:55
+msgid "images for village"
+msgstr "изображения деревни"
+
+#: main/models.py:66
+msgid "sight"
+msgstr "достопримечательность"
+
+#: main/models.py:67
+msgid "sights"
+msgstr "достопримечательности"
+
+#: main/models.py:76
+msgid "date"
+msgstr "дата"
+
+#: main/models.py:77
+msgid "youtube video url"
+msgstr "ссылка на видео youtube"
+
+#: main/models.py:80
+msgid "draft"
+msgstr "черновик"
+
+#: main/models.py:84
+msgid "event name"
+msgstr "событие"
+
+#: main/models.py:85
+msgid "events name"
+msgstr "события"
+
+#: main/models.py:103
+msgid "image for event"
+msgstr "изображение события"
+
+#: main/models.py:104
+msgid "images for event"
+msgstr "изображения события"
+
+#: main/models.py:110 main/models.py:114
+msgid "point on map"
+msgstr "точка на карте"
+
+#: main/models.py:115
+msgid "points on map"
+msgstr "точки на карте"
+
+#: main/templates/main/base.html:54 main/templates/main/main-page.html:64
+msgid "Events search"
+msgstr "Поиск событий"
+
+#: main/templates/main/base.html:79 main/templates/main/main-page.html:89
+msgid "Home"
+msgstr "Главная страница"
+
+#: main/templates/main/base.html:84 main/templates/main/main-page.html:94
+msgid "Map"
+msgstr "Карта"
+
+#: main/templates/main/base.html:89 main/templates/main/main-page.html:99
+msgid "Monument \"Unconquered\""
+msgstr "Памятник \"Непокоренный\""
+
+#: main/templates/main/base.html:94 main/templates/main/main-page.html:104
+msgid "Bells of Khatyn"
+msgstr "Колокола Хатыни"
+
+#: main/templates/main/base.html:99 main/templates/main/main-page.html:109
+msgid "All villages"
+msgstr "Все деревни"
+
+#: main/templates/main/base.html:104 main/templates/main/main-page.html:114
+msgid "All events"
+msgstr "Все события"
+
+#: main/templates/main/base.html:111 main/templates/main/main-page.html:121
+msgid "Create event"
+msgstr "Создать событие"
+
+#: main/templates/main/events.html:4
+msgid "Events"
+msgstr "События"
+
+#: main/templates/main/events.html:30
+msgid "Add event"
+msgstr "Добавить событие"
+
+#: main/templates/main/map.html:26
+msgid "Link"
+msgstr "Ссылка"
+
+#: main/templates/main/villages.html:12
+msgid "Villages search"
+msgstr "Поиск деревни"

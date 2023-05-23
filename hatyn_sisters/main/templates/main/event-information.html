@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %} {% load static %} {% load embed_video_tags %} {%block css %}
 <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 {% endblock css %} {% block content %}
-<h1 class="event-information-title">{{event_obj.name}}</h1>
+<h1 class="event-information-title">{{event_obj.name}} {{event_obj.date}}</h1>
 {% if event_obj.video %}
 <div class="event-video-container">
   {% video event_obj.video '100% x 600px' %}

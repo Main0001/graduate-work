@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 import json
 
-
+from django.http import Http404
 from django.core.serializers import serialize
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
@@ -30,6 +30,7 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Main page'
         context['villages_obj'] = ModelVillages.objects.all()[:6]
+        context['villages_obj_inscriptions'] = ModelVillages.objects.exclude(stone_inscription = "")[:12]
         return context
     
 
@@ -131,3 +132,9 @@ class EventInfoView(DetailView):
         context['title'] = 'Event information'
         context['img_set'] = EventsImageSet.objects.filter(post=self.get_object().id)
         return context
+    
+    def get_object(self, queryset=None):
+        event = super().get_object(queryset=queryset)
+        if event.draft:
+            raise Http404("Event not found.")
+        return event

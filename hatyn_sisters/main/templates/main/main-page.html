@@ -1,4 +1,4 @@
-{% load static %} {% load embed_video_tags %}
+{% load static %} {% load embed_video_tags %} {% load i18n %}
 
 <!DOCTYPE html>
 <html>
@@ -35,8 +35,21 @@
                 </a>
               </div>
             </div>
-
             <div class="sound-and-search">
+              <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Go">
+              </form>
               <div class="sound">
                 <button class="sound-off" onclick="soundStop()"></button>
                 <button class="sound-on" onclick="soundStart()"></button>
@@ -48,7 +61,7 @@
                     list="eventslist"
                     class="search-input-class"
                     name="search-input"
-                    placeholder="Поиск по событиям"
+                    placeholder="{% trans 'Events search' %}"
                     oninput="handleSearchInputEvents(this.value)"
                   />
                 </div>
@@ -73,39 +86,39 @@
                 <ul>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:index' %}"
-                      >Главная</a
+                      >{% trans 'Home' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:map' %}"
-                      >Карта</a
+                      >{% trans 'Map' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:monument' %}"
-                      >Памятник "Непокоренный"</a
+                      >{% trans 'Monument "Unconquered"' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:bells' %}"
-                      >Колокола Хатыни</a
+                      >{% trans 'Bells of Khatyn' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:villages' %}"
-                      >Все деревни</a
+                      >{% trans 'All villages' %}</a
                     >
                   </li>
                   <li>
                     <a class="menu-burger-li" href="{% url 'main:events' %}"
-                      >Все события</a
+                      >{% trans 'All events' %}</a
                     >
                   </li>
                   <li>
                     <a
                       class="menu-burger-li"
                       href="{% url 'main:create_event' %}"
-                      >Создать событие</a
+                      >{% trans 'Create event' %}</a
                     >
                   </li>
                 </ul>
@@ -124,30 +137,11 @@
             </div>
           </div>
           <div class="villages-stone-items">
-            <a href="{% url 'main:village' 2 %}"
-              ><img src="{% static 'img/Хатынь.png' %}"
-            /></a>
-            <a href="{% url 'main:village' 3 %}"
-              ><img src="{% static 'img/Бабино.png' %}"
-            /></a>
-            <a href="{% url 'main:village' 4 %}"
-              ><img src="{% static 'img/Зиняки.png' %}"
-            /></a>
-            <a href="{% url 'main:village' 5 %}"
-              ><img src="{% static 'img/Шкленск.png' %}"
-            /></a>
-            <a href="{% url 'main:village' 7 %}"
-              ><img src="{% static 'img/Княжеводцы.png' %}"
-            /></a>
-            <a href="{% url 'main:village' 8 %}"
-              ><img src="{% static 'img/Шауличи.png' %}"
-            /></a>
-            <a href="{% url 'main:village' 9 %}"
-              ><img src="{% static 'img/Тонеж.png' %}"
-            /></a>
-            <a href="{% url 'main:village' 10 %}"
-              ><img src="{% static 'img/Милошевичи.png' %}"
-            /></a>
+            {% for v_inscriptions in villages_obj_inscriptions %}
+              <a href="{% url 'main:village' v_inscriptions.pk %}"
+                ><img src="{{ v_inscriptions.stone_inscription.url }}"
+              /></a>
+            {% endfor %}
           </div>
         </div>
       </main>
@@ -164,6 +158,17 @@
     <script src="{% static 'js/searchInputs.js' %}"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="{% static 'js/slick-lib/slick/slick.min.js' %}"></script>
-    <script src="{% static 'js/slider.js' %}"></script>
+    <script>
+      $(function(){
+        $('.slick-vertical').slick({
+            vertical: true,
+            verticalSwiping: true,
+            slidesToShow: 3,
+            autoplay: true,
+            prevArrow: '<img src="{% static "img/arrow up.png" %}">',
+            nextArrow: '<img src="{% static "img/arrow down.png" %}">'
+        });
+    });
+    </script>
   </body>
 </html>

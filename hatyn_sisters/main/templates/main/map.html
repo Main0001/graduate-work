@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +23,7 @@
 
       const markers = JSON.parse(document.getElementById('markers-data').textContent);
       let feature = L.geoJSON(markers).bindPopup(function (layer) {
-        return `<b>${layer.feature.properties.name}</b>${layer.feature.properties.description}Ссылка: <a href="http://127.0.0.1:8000/villages/${layer.feature.properties.village}">http://127.0.0.1:8000/villages/${layer.feature.properties.village}</a>`;
+        return `<b>${layer.feature.properties.name}</b>${layer.feature.properties.description}{% trans 'Link' %}: <a href="http://127.0.0.1:8000/villages/${layer.feature.properties.village}">http://127.0.0.1:8000/villages/${layer.feature.properties.village}</a>`;
       }).addTo(map);
 
       let polyline;

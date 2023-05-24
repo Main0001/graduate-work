@@ -81,8 +81,8 @@ class ModelEvents(models.Model):
     
 
     class Meta:
-        verbose_name = _('event name')#'событие'
-        verbose_name_plural = _('events name')#'события'
+        verbose_name = _('event')#'событие'
+        verbose_name_plural = _('events')#'события'
 
     def __str__(self):
         return f'{self.name}'

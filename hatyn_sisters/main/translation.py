@@ -1,22 +1,22 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import ModelSights, ModelEvents, ModelSightsEventsCategories, Marker, ModelVillages
+from .models import ModelSights, ModelEvents, ModelSightsEventsCategories, Marker, ModelVillages, EventsImageSet
 
 @register(ModelEvents)
 class ModelEventsTranslationOptions(TranslationOptions):
     fields = ('name', 'description',)
 
 @register(ModelSights)
-class ModelEventsTranslationOptions(TranslationOptions):
+class ModelSightsTranslationOptions(TranslationOptions):
     fields = ('name', 'description',)
 
 @register(ModelSightsEventsCategories)
-class ModelEventsTranslationOptions(TranslationOptions):
+class ModelSightsEventsCategoriesTranslationOptions(TranslationOptions):
     fields = ('name', 'description',)
 
 @register(Marker)
-class ModelEventsTranslationOptions(TranslationOptions):
+class MarkerTranslationOptions(TranslationOptions):
     fields = ('name', 'description',)
 
 @register(ModelVillages)
-class ModelEventsTranslationOptions(TranslationOptions):
+class ModelVillagesTranslationOptions(TranslationOptions):
     fields = ('name', 'description',)

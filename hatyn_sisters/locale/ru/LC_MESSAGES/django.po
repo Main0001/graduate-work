@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-23 14:34+0000\n"
+"POT-Creation-Date: 2023-05-24 11:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,13 +20,37 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: hatyn_sisters/settings.py:205
+#: hatyn_sisters/settings.py:204
 msgid "Russian"
 msgstr "Русский"
 
-#: hatyn_sisters/settings.py:206
+#: hatyn_sisters/settings.py:205
 msgid "English"
 msgstr "Английский"
+
+#: main/forms.py:12
+msgid "Enter event name"
+msgstr "Введите название события"
+
+#: main/forms.py:19
+msgid "Event name"
+msgstr "Название события"
+
+#: main/forms.py:20
+msgid "Event description"
+msgstr "Описание события"
+
+#: main/forms.py:21
+msgid "Event date"
+msgstr "Дата события"
+
+#: main/forms.py:22
+msgid "Youtube video url"
+msgstr "Ссылка на видео youtube"
+
+#: main/forms.py:23
+msgid "The village where the event took place"
+msgstr "Деревня, в которой произошло событие"
 
 #: main/models.py:15 main/models.py:27 main/models.py:59 main/models.py:74
 #: main/models.py:108
@@ -103,11 +127,11 @@ msgid "draft"
 msgstr "черновик"
 
 #: main/models.py:84
-msgid "event name"
+msgid "event"
 msgstr "событие"
 
 #: main/models.py:85
-msgid "events name"
+msgid "events"
 msgstr "события"
 
 #: main/models.py:103
@@ -157,6 +181,10 @@ msgstr "Все события"
 #: main/templates/main/base.html:111 main/templates/main/main-page.html:121
 msgid "Create event"
 msgstr "Создать событие"
+
+#: main/templates/main/create-event.html:8
+msgid "Save"
+msgstr "Сохранить"
 
 #: main/templates/main/events.html:4
 msgid "Events"

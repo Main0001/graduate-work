@@ -21,6 +21,7 @@ class Events_imagesetInline(TabularInline):
 @admin.register(ModelVillages)
 class VillagesAdmin(TranslationAdmin):
     list_display = ['id', 'name']
+    list_display_links = ['id', 'name']
     search_fields = ['name']
     inlines = [Villages_imagesetInline]
 
@@ -31,6 +32,7 @@ class VillagesAdmin(TranslationAdmin):
 @admin.register(ModelSights)
 class SightsAdmin(TranslationAdmin):
     list_display = ['id', 'name']
+    list_display_links = ['id', 'name']
     search_fields = ['name']
 
     class Meta:
@@ -40,7 +42,12 @@ class SightsAdmin(TranslationAdmin):
 @admin.register(ModelEvents)
 class EventsAdmin(TranslationAdmin, AdminVideoMixin):
     list_display = ['id', 'name', 'date', 'draft']
+    list_display_links = ['id', 'name']
+    list_editable = ['draft']
+    list_filter = ['draft']
     search_fields = ['name']
+    ordering = ['name']
+    save_on_top = True
     inlines = [Events_imagesetInline]
 
     class Meta:

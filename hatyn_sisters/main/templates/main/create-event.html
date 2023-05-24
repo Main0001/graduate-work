@@ -1,11 +1,12 @@
-{% extends 'main/base.html' %} {% load static %} {% block css %}
+{% extends 'main/base.html' %} {% load static %} {% load i18n %} {% block css %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 {% endblock css %} {% block content %}
 <div class="create-event-form-container">
   <form class="create-event-form" method="post" enctype="multipart/form-data">
-    {% csrf_token %} {{ form.as_p }} {{ formset.management_form }} 
-    {% for form in formset %} {{ form.as_table }} {% endfor %}
-    <input type="submit" value="Сохранить" class="create-event-submit"/>
+    {% csrf_token %} {{ form.as_p }} {{ formset.management_form }} {% for form in formset %} 
+      {{ form.as_table }} 
+    {% endfor %}
+    <input type="submit" value="{% trans 'Save' %}" class="create-event-submit" />
   </form>
 </div>
 {% endblock content %}

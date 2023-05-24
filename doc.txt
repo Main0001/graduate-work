@@ -1,4 +1,0 @@
-for work with django:
-  1. cd in Diplom
-  2. open terminal and write "python3.10 -m venv venv", "source venv/bin/activate"
-  3. install req, write in terminal "pip install -r req.txt"

@@ -14,10 +14,6 @@ class Villages_imagesetInline(TabularInline):
     readonly_fields = ['object_id']
 
 
-class Events_imagesetInline(TabularInline):
-    model = EventsImageSet
-    readonly_fields = ['object_id']
-
 @admin.register(ModelVillages)
 class VillagesAdmin(TranslationAdmin):
     list_display = ['id', 'name']
@@ -29,14 +25,9 @@ class VillagesAdmin(TranslationAdmin):
         model = ModelVillages
 
 
-@admin.register(ModelSights)
-class SightsAdmin(TranslationAdmin):
-    list_display = ['id', 'name']
-    list_display_links = ['id', 'name']
-    search_fields = ['name']
-
-    class Meta:
-        model = ModelSights
+class EventsImagesetInline(admin.TabularInline):
+    model = EventsImageSet
+    readonly_fields = ['object_id']
 
 
 @admin.register(ModelEvents)
@@ -48,10 +39,20 @@ class EventsAdmin(TranslationAdmin, AdminVideoMixin):
     search_fields = ['name']
     ordering = ['name']
     save_on_top = True
-    inlines = [Events_imagesetInline]
+    inlines = [EventsImagesetInline]
 
     class Meta:
         model = ModelEvents
+
+
+@admin.register(ModelSights)
+class SightsAdmin(TranslationAdmin):
+    list_display = ['id', 'name']
+    list_display_links = ['id', 'name']
+    search_fields = ['name']
+
+    class Meta:
+        model = ModelSights
 
 
 @admin.register(ModelSightsEventsCategories)

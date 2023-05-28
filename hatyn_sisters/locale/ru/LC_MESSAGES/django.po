@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-24 11:06+0000\n"
+"POT-Creation-Date: 2023-05-26 09:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,27 +28,35 @@ msgstr "Русский"
 msgid "English"
 msgstr "Английский"
 
-#: main/forms.py:12
+#: main/forms.py:12 main/forms.py:14
+msgid "Please fill out this field."
+msgstr "Пожалуйста, заполните это поле"
+
+#: main/forms.py:16
+msgid "Please select an item in the list."
+msgstr "Пожалуйста, выберите деревню"
+
+#: main/forms.py:24
 msgid "Enter event name"
 msgstr "Введите название события"
 
-#: main/forms.py:19
+#: main/forms.py:31
 msgid "Event name"
 msgstr "Название события"
 
-#: main/forms.py:20
+#: main/forms.py:32
 msgid "Event description"
 msgstr "Описание события"
 
-#: main/forms.py:21
+#: main/forms.py:33
 msgid "Event date"
 msgstr "Дата события"
 
-#: main/forms.py:22
+#: main/forms.py:34
 msgid "Youtube video url"
 msgstr "Ссылка на видео youtube"
 
-#: main/forms.py:23
+#: main/forms.py:35
 msgid "The village where the event took place"
 msgstr "Деревня, в которой произошло событие"
 
@@ -182,7 +190,7 @@ msgstr "Все события"
 msgid "Create event"
 msgstr "Создать событие"
 
-#: main/templates/main/create-event.html:8
+#: main/templates/main/create-event.html:9
 msgid "Save"
 msgstr "Сохранить"
 

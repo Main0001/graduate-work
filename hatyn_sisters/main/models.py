@@ -93,7 +93,7 @@ class ModelEvents(models.Model):
 
 class EventsImageSet(models.Model):
     id = models.AutoField(primary_key=True)
-    object_id = models.PositiveIntegerField()
+    object_id = models.PositiveIntegerField(null=True, default=1)
     post = models.ForeignKey(to=ModelEvents, null=True, blank=True, verbose_name=_('post'), on_delete=models.SET_NULL)
     image = models.ImageField(upload_to='events_media_images/%Y/%m/%d/', blank=True, null=True, verbose_name=_('image'))
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)

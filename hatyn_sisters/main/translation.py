@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import ModelSights, ModelEvents, ModelSightsEventsCategories, Marker, ModelVillages, EventsImageSet
+from .models import ModelSights, ModelEvents, ModelSightsEventsCategories, Marker, ModelVillages
 
 @register(ModelEvents)
 class ModelEventsTranslationOptions(TranslationOptions):

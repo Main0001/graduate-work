@@ -1,1 +1,0 @@
-web: gunicorn hatyn_sisters.wsgi --log-file -

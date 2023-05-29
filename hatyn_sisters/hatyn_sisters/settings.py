@@ -176,11 +176,11 @@ WSGI_APPLICATION = 'hatyn_sisters.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': '1cmykGehCaUCPvF8tYtA',
-        'HOST': 'containers-us-west-146.railway.app',
-        'PORT': '6250',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_USER_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 

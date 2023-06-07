@@ -4,7 +4,7 @@
 <h2 class="events-information-title">{% trans 'Events' %}</h2>
 <div class="dropdown-container">
   <div class="dropdown-content-container">
-    {% for v in villages_obj %}
+    {% for v in object_list %}
     <div class="dropdown">
       <button onclick="myFunction('myDropdown{{v.pk}}')" class="dropbtn">
         {{v.name}}

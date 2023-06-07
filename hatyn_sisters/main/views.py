@@ -1,3 +1,5 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 import json
 
@@ -64,6 +66,11 @@ class VillagesListView(ListView):
         context = super().get_context_data(object_list=object_list, **kwargs)
         context['title'] = 'Villages'
         return context
+    
+    def get_queryset(self) -> QuerySet[Any]:
+        queryset = super().get_queryset()
+        queryset = ModelVillages.objects.exclude(cover='')
+        return queryset
 
 
 class VillageInfoView(DetailView):
@@ -83,7 +90,6 @@ def create_event(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
         formset = EventImageFormSet(request.POST, request.FILES, prefix='eventsimageset_set')
-        print(request.FILES)
         
         if form.is_valid() and formset.is_valid():
             event = form.save()
@@ -119,6 +125,11 @@ class EventsListView(ListView):
         context['title'] = 'Events'
         context['events_obj'] = ModelEvents.objects.filter(draft=False)
         return context
+    
+    def get_queryset(self) -> QuerySet[Any]:
+        queryset = super().get_queryset()
+        queryset = ModelVillages.objects.filter(draft=False)
+        return queryset
 
 
 class EventInfoView(DetailView):

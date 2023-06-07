@@ -30,6 +30,7 @@ class ModelVillages(models.Model):
     cover = models.ImageField(upload_to='villages_media_covers/%Y/%m/%d/', blank=True, null=True, verbose_name=_('cover'))
     stone_inscription = models.ImageField(upload_to='villages_media_stone_inscriptions/%Y/%m/%d/', blank=True, null=True, verbose_name=_('stone inscription'))
     time_create = models.DateTimeField(auto_now_add=True, verbose_name=_('time create'))
+    draft = models.BooleanField(default=True, verbose_name=_('draft'))
 
     class Meta:
         verbose_name = _('village')#'деревня'

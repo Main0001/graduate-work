@@ -16,9 +16,13 @@ class Villages_imagesetInline(TabularInline):
 
 @admin.register(ModelVillages)
 class VillagesAdmin(TranslationAdmin):
-    list_display = ['id', 'name']
+    list_display = ['id', 'name', 'draft']
     list_display_links = ['id', 'name']
+    list_editable = ['draft']
+    list_filter = ['time_create','draft']
     search_fields = ['name']
+    ordering = ['id']
+    save_on_top = True
     inlines = [Villages_imagesetInline]
 
     class Meta:
@@ -35,9 +39,9 @@ class EventsAdmin(TranslationAdmin, AdminVideoMixin):
     list_display = ['id', 'name', 'date', 'draft']
     list_display_links = ['id', 'name']
     list_editable = ['draft']
-    list_filter = ['draft']
+    list_filter = ['time_create','draft']
     search_fields = ['name']
-    ordering = ['name']
+    ordering = ['id']
     save_on_top = True
     inlines = [EventsImagesetInline]
 
@@ -50,6 +54,7 @@ class SightsAdmin(TranslationAdmin):
     list_display = ['id', 'name']
     list_display_links = ['id', 'name']
     search_fields = ['name']
+    ordering = ['id']
 
     class Meta:
         model = ModelSights
@@ -57,7 +62,9 @@ class SightsAdmin(TranslationAdmin):
 
 @admin.register(ModelSightsEventsCategories)
 class CategoriesAdmin(TranslationAdmin):
-    list_display = ['name', 'description']
+    list_display = ['id', 'name', 'description']
+    list_display_links = ['id', 'name']
+    ordering = ['id']
 
     class Meta:
         model = ModelSightsEventsCategories
@@ -65,8 +72,11 @@ class CategoriesAdmin(TranslationAdmin):
 
 @admin.register(Marker)
 class MarkerAdmin(OSMGadmin.OSMGeoAdmin, TranslationAdmin):
-    list_display = ['name', 'location']
+    list_display = ['id', 'name', 'location']
+    list_display_links = ['id', 'name']
     search_fields = ['name']
+    ordering = ['id']
+    save_on_top = True
 
     class Meta:
         model = Marker

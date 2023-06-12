@@ -3,6 +3,8 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 import json
 
+from django.utils.translation import gettext_lazy as _
+
 from django.http import Http404
 from django.core.serializers import serialize
 from django.views.generic.base import TemplateView
@@ -20,6 +22,7 @@ class MarkersMapView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['title'] = _('Map')
         context['markers'] = json.loads(serialize('geojson', Marker.objects.all()))
         context['markers_obj'] = Marker.objects.exclude(village__name = 'Хатынь')
         return context
@@ -30,7 +33,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Main page'
+        context['title'] = _('Main page')
         context['villages_obj'] = ModelVillages.objects.all()[:6]
         context['villages_obj_inscriptions'] = ModelVillages.objects.exclude(stone_inscription = "")[:12]
         return context
@@ -41,7 +44,7 @@ class BellsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Bells information'
+        context['title'] = _('Bells information')
         context['bells_obj'] = ModelSights.objects.filter(name='Колокола Хатыни')
         return context
     
@@ -51,7 +54,7 @@ class MonumentView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Monument information'
+        context['title'] = _('Monument information')
         context['monument_obj'] = ModelSights.objects.filter(name='Памятник "Непокоренный"')
         return context
 
@@ -64,7 +67,7 @@ class VillagesListView(ListView):
     
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
-        context['title'] = 'Villages'
+        context['title'] = _('Villages')
         return context
     
     def get_queryset(self) -> QuerySet[Any]:
@@ -81,7 +84,7 @@ class VillageInfoView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Village information'
+        context['title'] = _('Village information')
         context['img_set'] = VillagesImageSet.objects.filter(post=self.get_object().id)
         return context
 
@@ -109,7 +112,7 @@ def create_event(request):
     context = {
         'form': form,
         'formset': formset,
-        'title': 'Create event'
+        'title': _('Create event')
     }
     return render(request, 'main/create-event.html', context)
 
@@ -122,7 +125,7 @@ class EventsListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
-        context['title'] = 'Events'
+        context['title'] = _('Events')
         context['events_obj'] = ModelEvents.objects.filter(draft=False)
         return context
     
@@ -140,7 +143,7 @@ class EventInfoView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Event information'
+        context['title'] = _('Event information')
         context['img_set'] = EventsImageSet.objects.filter(post=self.get_object().id)
         return context
     

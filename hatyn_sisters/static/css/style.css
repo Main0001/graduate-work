@@ -132,6 +132,7 @@ header {
   background: url(../img/sound_off.png) 100% 100% no-repeat;
   width: 40px;
   height: 40px;
+  display: none;
 }
 
 .sound-on {
@@ -139,7 +140,6 @@ header {
   background: url(../img/sound_on.png) 100% 100% no-repeat;
   width: 40px;
   height: 40px;
-  display: none;
 }
 
 .search-input-class {

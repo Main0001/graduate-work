@@ -51,8 +51,8 @@
                 <input type="submit" class="input-language" value="Go">
               </form>
               <div class="sound">
-                <button class="sound-off" onclick="soundStop()"></button>
                 <button class="sound-on" onclick="soundStart()"></button>
+                <button class="sound-off" onclick="soundStop()"></button>
               </div>
               <div class="search">
                 <div class="search-field">
@@ -149,7 +149,6 @@
     <audio
       src="{% static 'audio/zvon-kolokola-bez-nazvaniya.mp3' %}"
       id="audio"
-      autoplay
       loop
       autobuffer
     ></audio>
